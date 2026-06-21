@@ -6,7 +6,14 @@ import { useState } from "react";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
   const whatsappNumber = "556599364197";
+
+  const handleCopyAddress = () => {
+    navigator.clipboard.writeText("Av. Papa Paulo VI, 108 - Centro, Arenápolis - MT");
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+  };
 
   return (
     <div className="min-h-screen bg-[#FFF8E1] text-[#3E2723] flex flex-col font-sans relative overflow-x-hidden">
@@ -225,11 +232,11 @@ export default function Home() {
              </p>
           </div>
 
-          <div className="relative w-full py-4 touch-pan-x cursor-grab active:cursor-grabbing">
-            <div className="w-full overflow-x-auto scrollbar-hide flex [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
-              <div className="flex w-max py-8 px-[5vw] md:px-[10vw]">
+          <div className="relative w-full py-4">
+            <div className="w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide flex [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
+              <div className="flex w-max py-8 px-[5vw] md:px-[10vw] gap-4 md:gap-6">
                 {Array.from({ length: 15 }).map((_, i) => (
-                  <div key={i} className="group relative flex-none w-[75vw] sm:w-[300px] md:w-[340px] aspect-[4/5] mx-3 md:mx-4 rounded-[2rem] overflow-hidden border border-[#3E2723]/10 hover:border-[#E64A19]/50 shadow-lg hover:shadow-[0_20px_40px_rgba(230,74,25,0.2)] transition-all duration-500 ease-out bg-[#3E2723]/5 transform-gpu" style={{ transform: 'translate3d(0,0,0)', backfaceVisibility: 'hidden' }}>
+                  <div key={i} className="snap-center group relative flex-none w-[75vw] sm:w-[300px] md:w-[340px] aspect-[4/5] rounded-[2rem] overflow-hidden border border-[#3E2723]/10 hover:border-[#E64A19]/50 shadow-lg hover:shadow-[0_20px_40px_rgba(230,74,25,0.2)] transition-all duration-500 ease-out bg-[#3E2723]/5 transform-gpu" style={{ transform: 'translate3d(0,0,0)', backfaceVisibility: 'hidden' }}>
                     <Image 
                       src={`/images/produtos/produto-${String(i+1).padStart(3, '0')}.webp`}
                       alt={`Produto Artesanal ${i+1}`}
@@ -308,8 +315,19 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="flex flex-col gap-4 mt-auto border-t border-gray-100 pt-8 order-3">
-                    <button className="flex items-center justify-center gap-2 w-full py-4 rounded-full border-2 border-gray-100 text-[#3E2723] hover:bg-[#FFF8E1] hover:border-[#FBC02D] transition-colors text-sm tracking-widest uppercase font-bold">
-                      <Copy className="w-5 h-5" /> Copiar Endereço
+                    <button 
+                      onClick={handleCopyAddress}
+                      className="flex items-center justify-center gap-2 w-full py-4 rounded-full border-2 border-gray-100 text-[#3E2723] hover:bg-[#FFF8E1] hover:border-[#FBC02D] transition-colors text-sm tracking-widest uppercase font-bold"
+                    >
+                      {isCopied ? (
+                        <>
+                          <CheckCircle2 className="w-5 h-5 text-[#25D366]" /> <span className="text-[#25D366]">Endereço Copiado!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-5 h-5" /> Copiar Endereço
+                        </>
+                      )}
                     </button>
                     <div className="grid grid-cols-2 gap-4">
                       <a href="https://maps.app.goo.gl/7LcAWQDAaKbYDCm29" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden flex items-center justify-center gap-2 bg-[#E64A19] text-white rounded-full py-4 text-[10px] md:text-xs font-bold tracking-[0.1em] md:tracking-[0.15em] uppercase hover:bg-[#d84013] transition-colors group">
