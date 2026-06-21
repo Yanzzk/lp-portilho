@@ -26,7 +26,7 @@ export default function Home() {
       document.body.style.overflow = '';
       document.documentElement.style.overflow = '';
     };
-  }, [isMenuOpen, showFachadaModal, showFachadaZoom]);
+  }, [isMenuOpen, showFachadaModal, zoomImageSrc]);
 
   const handleCopyAddress = () => {
     navigator.clipboard.writeText("Av. Papa Paulo VI, 108 - Centro, Arenápolis - MT");
@@ -198,7 +198,7 @@ export default function Home() {
                     <strong>Por que pegar fila se você pode ser VIP?</strong> Receba nosso cardápio atualizado e fure a fila do balcão da Pães & Delícias.
                   </p>
                   <p>
-                    Salgados crocantes e pães artesanais separados exclusivamente para você. Sem tempo de espera. Sem "acabou".
+                    Salgados crocantes e pães artesanais separados exclusivamente para você. Sem tempo de espera. Sem &quot;acabou&quot;.
                   </p>
                 </div>
                 
