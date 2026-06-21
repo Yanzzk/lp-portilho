@@ -294,11 +294,11 @@ export default function Home() {
             <div className="absolute top-0 bottom-0 left-0 w-[5vw] md:w-[15vw] bg-gradient-to-r from-[#FFF8E1] to-transparent z-10 pointer-events-none"></div>
             <div className="absolute top-0 bottom-0 right-0 w-[5vw] md:w-[15vw] bg-gradient-to-l from-[#FFF8E1] to-transparent z-10 pointer-events-none"></div>
             
-            <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] group-active:[animation-play-state:paused] focus-within:[animation-play-state:paused]" style={{ animationDuration: '80s' }}>
+            <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] group-active:[animation-play-state:paused] focus-within:[animation-play-state:paused] will-change-transform" style={{ animationDuration: '80s' }}>
               {[...Array(15), ...Array(15)].map((_, i) => {
                 const realIndex = i % 15;
                 return (
-                  <div key={i} className="group/item relative flex-none w-[70vw] sm:w-[300px] md:w-[320px] aspect-[4/5] mx-3 md:mx-4 rounded-[2rem] overflow-hidden border border-[#3E2723]/10 hover:border-[#E64A19]/50 shadow-lg hover:shadow-[0_20px_40px_rgba(230,74,25,0.2)] transition-all duration-500 ease-out bg-[#3E2723]/5 cursor-pointer touch-manipulation transform-gpu" style={{ transform: 'translate3d(0,0,0)', backfaceVisibility: 'hidden' }}>
+                  <div key={i} className="group/item relative flex-none w-[70vw] sm:w-[300px] md:w-[320px] aspect-[4/5] mx-3 md:mx-4 rounded-[2rem] overflow-hidden border border-[#3E2723]/10 hover:border-[#E64A19]/50 shadow-lg transition-all duration-500 ease-out bg-[#3E2723]/5 cursor-pointer touch-manipulation transform-gpu" style={{ transform: 'translate3d(0,0,0)', backfaceVisibility: 'hidden' }}>
                     <div className="absolute inset-0 z-0" onClick={() => setZoomImageSrc(`/images/produtos/produto-${String(realIndex+1).padStart(3, '0')}.webp`)}></div>
                     <Image 
                       src={`/images/produtos/produto-${String(realIndex+1).padStart(3, '0')}.webp`}
@@ -310,12 +310,12 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/90 via-[#3E2723]/20 to-transparent opacity-60 md:opacity-80 transition-opacity duration-300 pointer-events-none z-0"></div>
                     
                     {/* Zoom Hint */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#3E2723]/80 border border-[#FBC02D]/30 text-[#FFF8E1] text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase px-6 py-3 rounded-full opacity-80 md:opacity-0 md:group-hover/item:opacity-100 md:group-active/item:opacity-100 transition-all duration-300 pointer-events-none shadow-[0_10px_20px_rgba(0,0,0,0.5)] flex items-center gap-2.5 transform-gpu md:translate-y-4 md:group-hover/item:translate-y-0 z-10 backdrop-blur-md">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#3E2723]/95 border border-[#FBC02D]/30 text-[#FFF8E1] text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase px-6 py-3 rounded-full opacity-80 md:opacity-0 md:group-hover/item:opacity-100 md:group-active/item:opacity-100 transition-all duration-300 pointer-events-none shadow-md flex items-center gap-2.5 transform-gpu md:translate-y-4 md:group-hover/item:translate-y-0 z-10">
                       <ZoomIn className="w-4 h-4 text-[#FBC02D]" /> AMPLIAR
                     </div>
 
                     <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-3 transform-gpu transition-all duration-300 md:translate-y-4 md:group-hover/item:translate-y-0 z-20">
-                       <h3 className="text-white font-serif font-bold text-xl md:text-2xl drop-shadow-md pointer-events-none">Item Fresco #{realIndex+1}</h3>
+                       <h3 className="text-white font-serif font-bold text-xl md:text-2xl pointer-events-none" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>Item Fresco #{realIndex+1}</h3>
                        <button 
                          onClick={() => setShowCatalog(true)}
                          className="w-full bg-[#E64A19] text-white text-[10px] sm:text-xs font-black tracking-widest uppercase px-5 py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 hover:bg-[#d84013] transition-colors relative z-30"
