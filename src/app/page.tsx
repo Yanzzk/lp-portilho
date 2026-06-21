@@ -10,6 +10,7 @@ export default function Home() {
   const [isCopied, setIsCopied] = useState(false);
   const [showFachadaModal, setShowFachadaModal] = useState(false);
   const [zoomImageSrc, setZoomImageSrc] = useState<string | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const whatsappNumber = "556599364197";
 
   useEffect(() => {
@@ -457,6 +458,68 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Persuasivo (Hormozi Grand Slam) */}
+        <section className="bg-[#2D1B18] py-24 md:py-32 relative border-t border-white/10">
+          <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+            <div className="text-center mb-16">
+              <span className="text-[#FBC02D] text-xs md:text-sm font-bold tracking-[0.3em] uppercase block mb-4">Elimine suas dúvidas</span>
+              <h2 className="text-3xl md:text-5xl font-serif font-black text-white leading-tight">
+                Perguntas Frequentes
+              </h2>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                {
+                  q: "Como garanto que meu salgado vai estar quente e crocante?",
+                  a: "Nossa produção é inteligente e contínua. Fritamos e assamos em lotes menores durante o dia. Ao fazer seu pedido pelo WhatsApp, nós separamos a sua encomenda. Você chega, retira sem fila e come com a qualidade máxima de Arenápolis."
+                },
+                {
+                  q: "Preciso pegar fila quando for buscar minha encomenda?",
+                  a: "De jeito nenhum. O cliente VIP que faz o pedido antecipado pelo WhatsApp não pega a fila do balcão. Você chega na Pães & Delícias, informa seu nome, retira seu pacote exclusivo e vai aproveitar o seu dia. Tempo é dinheiro, nós poupamos o seu."
+                },
+                {
+                  q: "Posso encomendar bolos de última hora para o fim de semana?",
+                  a: "Nossa vitrine premium zera rápido! Recomendamos que feche sua encomenda até sexta-feira para garantir os sabores mais disputados. Mas se precisar de urgência extrema, clique no botão do WhatsApp. Faremos o impossível para te salvar."
+                },
+                {
+                  q: "E se o sabor ou a frescura não estiverem como prometido?",
+                  a: "Nós carregamos a tradição de Arenápolis e não brincamos com isso. Se o seu produto não estiver no padrão Pães & Delícias ou não for o melhor que já provou, nós trocamos ou resolvemos na hora. Seu risco é absolutamente zero. Nosso compromisso é com a sua mesa."
+                }
+              ].map((faq, index) => (
+                <div 
+                  key={index}
+                  className="bg-[#3E2723]/50 border border-white/10 rounded-2xl overflow-hidden transition-all duration-300"
+                >
+                  <button 
+                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                    className="w-full px-6 py-6 text-left flex items-center justify-between gap-4 hover:bg-[#3E2723] transition-colors"
+                  >
+                    <span className="text-white font-bold text-lg md:text-xl pr-8">{faq.q}</span>
+                    <div className={`shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center transition-transform duration-300 ${openFaq === index ? 'rotate-180 bg-[#E64A19] border-[#E64A19]' : ''}`}>
+                      <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L7 7L13 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                  </button>
+                  
+                  <div 
+                    className={`px-6 overflow-hidden transition-all duration-500 ease-in-out ${openFaq === index ? 'max-h-64 py-6 opacity-100 border-t border-white/10' : 'max-h-0 py-0 opacity-0'}`}
+                  >
+                    <p className="text-[#FFF8E1]/80 text-base md:text-lg leading-relaxed font-light">
+                      {faq.a}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="mt-12 text-center">
+               <p className="text-[#FFF8E1]/60 text-sm font-bold tracking-widest uppercase">Ainda tem dúvidas? O Portilho te responde no WhatsApp!</p>
             </div>
           </div>
         </section>
