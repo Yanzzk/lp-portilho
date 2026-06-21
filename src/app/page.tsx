@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, ShoppingBag, CheckCircle2, Star, ShieldCheck, Clock, ArrowRight, X, MapPin, Car, Copy, ZoomIn, Instagram, Facebook } from "lucide-react";
+import { Menu, ShoppingBag, CheckCircle2, Star, ShieldCheck, Clock, ArrowRight, X, MapPin, Car, Copy, ZoomIn } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
@@ -566,10 +566,10 @@ export default function Home() {
                 <span className="text-[#FFF8E1]/80 text-sm font-bold tracking-widest uppercase">Acompanhe Nossas Fornadas</span>
                 <div className="flex gap-4">
                   <a href="https://www.instagram.com/panipaesedelicias/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg">
-                    <Instagram className="w-7 h-7" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                   </a>
                   <a href="https://www.facebook.com/panipaesedelicias/?locale=pt_BR" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-[#1877F2] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg">
-                    <Facebook className="w-7 h-7" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                   </a>
                 </div>
               </div>
