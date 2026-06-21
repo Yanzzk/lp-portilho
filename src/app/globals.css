@@ -25,3 +25,15 @@ body {
 .animate-marquee {
   animation: marquee 25s linear infinite;
 }
+
+/* Proteção contra download/salvamento de imagem em mobile/desktop */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  pointer-events: none;
+}

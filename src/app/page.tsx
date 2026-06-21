@@ -259,8 +259,10 @@ export default function Home() {
                     src="/images/mockup-produto-008.webp" 
                     alt="Pães e Delícias no celular"
                     fill
-                    className="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-700 md:group-hover/mockup:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-700 md:group-hover/mockup:scale-105 select-none pointer-events-none"
                     priority
+                    draggable={false}
+                    style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
                   />
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#3E2723]/95 border border-[#FBC02D]/30 text-[#FFF8E1] text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase px-6 py-3 rounded-full opacity-0 group-hover/mockup:opacity-100 transition-all duration-300 pointer-events-none shadow-md flex items-center gap-2.5 transform-gpu translate-y-4 group-hover/mockup:translate-y-0 z-20">
                     <ZoomIn className="w-4 h-4 text-[#FBC02D]" /> AMPLIAR
@@ -298,13 +300,15 @@ export default function Home() {
                       src={`/images/produtos/produto-${String(realIndex+1).padStart(3, '0')}.webp`}
                       alt={`Produto Artesanal ${realIndex+1}`}
                       fill
-                      className="w-full h-full object-cover object-center transition-transform duration-700 md:group-hover/item:scale-105 select-none pointer-events-none transform-gpu -z-10"
                       sizes="(max-width: 640px) 70vw, 320px"
+                      className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 md:group-hover/item:scale-105 select-none pointer-events-none transform-gpu -z-10"
+                      draggable={false}
+                      style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/90 via-[#3E2723]/20 to-transparent opacity-60 md:opacity-80 transition-opacity duration-300 pointer-events-none z-0"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/90 via-[#3E2723]/20 to-transparent opacity-60 transition-opacity duration-300 pointer-events-none z-0"></div>
                     
                     {/* Zoom Hint */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#3E2723]/95 border border-[#FBC02D]/30 text-[#FFF8E1] text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase px-6 py-3 rounded-full opacity-80 md:opacity-0 md:group-hover/item:opacity-100 md:group-active/item:opacity-100 transition-all duration-300 pointer-events-none shadow-md flex items-center gap-2.5 transform-gpu md:translate-y-4 md:group-hover/item:translate-y-0 z-10">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#3E2723]/95 border border-[#FBC02D]/30 text-[#FFF8E1] text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase px-6 py-3 rounded-full opacity-0 md:group-hover/item:opacity-100 transition-all duration-300 pointer-events-none shadow-md flex items-center gap-2.5 transform-gpu translate-y-4 md:group-hover/item:translate-y-0 z-10">
                       <ZoomIn className="w-4 h-4 text-[#FBC02D]" /> AMPLIAR
                     </div>
 
