@@ -3,7 +3,6 @@
 import { Menu, ShoppingBag, CheckCircle2, Star, ShieldCheck, Clock, ArrowRight, X, MapPin, Car, Copy, ZoomIn } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { InteractiveCatalog } from "@/components/InteractiveCatalog";
 
 export default function Home() {
@@ -626,10 +625,14 @@ export default function Home() {
 
       {/* Generic Zoom Viewer */}
       {zoomImageSrc && (
-        <div className="fixed inset-0 z-[120] bg-[#111] flex flex-col animate-in fade-in duration-300">
+        <div 
+          className="fixed inset-0 z-[120] bg-black/95 backdrop-blur-xl flex flex-col animate-in fade-in duration-300 touch-none"
+          onClick={() => setZoomImageSrc(null)}
+        >
           <div className="absolute top-6 right-6 z-[130]">
             <button 
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 setZoomImageSrc(null);
               }}
               className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors shadow-lg"
@@ -637,22 +640,15 @@ export default function Home() {
               <X className="w-6 h-6 text-white" />
             </button>
           </div>
-          <div className="flex-1 w-full h-full relative">
-            <TransformWrapper
-              initialScale={1}
-              minScale={0.5}
-              maxScale={4}
-              centerOnInit={true}
-            >
-              <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }} contentStyle={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <img 
-                  src={zoomImageSrc} 
-                  alt="Imagem Ampliada" 
-                  className="max-w-[95vw] max-h-[85vh] object-contain rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] select-none pointer-events-auto"
-                  draggable="false"
-                />
-              </TransformComponent>
-            </TransformWrapper>
+          <div className="flex-1 w-full h-full p-4 md:p-12 flex items-center justify-center overflow-auto">
+            <img 
+              src={zoomImageSrc} 
+              alt="Imagem Ampliada" 
+              className="max-w-full max-h-full object-contain rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] select-none pointer-events-auto"
+              draggable="false"
+              style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
+              onClick={(e) => e.stopPropagation()}
+            />
           </div>
         </div>
       )}
