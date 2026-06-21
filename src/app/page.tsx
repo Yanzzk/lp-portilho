@@ -262,13 +262,8 @@ export default function Home() {
                     className="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-700 md:group-hover/mockup:scale-105"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10 flex items-end justify-center pb-8">
-                    <div className="animate-pulse bg-[#E64A19] text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest shadow-lg">
-                      Fresco de Hoje
-                    </div>
-                  </div>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/50 border border-white/20 text-white text-[10px] sm:text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full opacity-80 md:opacity-0 md:group-hover/mockup:opacity-100 transition-all duration-300 pointer-events-none shadow-lg flex items-center gap-2 transform-gpu md:translate-y-4 md:group-hover/mockup:translate-y-0 z-20 backdrop-blur-sm">
-                    <span className="text-sm">🔍</span> AMPLIAR
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#3E2723]/95 border border-[#FBC02D]/30 text-[#FFF8E1] text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase px-6 py-3 rounded-full opacity-0 group-hover/mockup:opacity-100 transition-all duration-300 pointer-events-none shadow-md flex items-center gap-2.5 transform-gpu translate-y-4 group-hover/mockup:translate-y-0 z-20">
+                    <ZoomIn className="w-4 h-4 text-[#FBC02D]" /> AMPLIAR
                   </div>
                 </div>
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] md:w-[400px] h-[600px] bg-[#E64A19]/20 blur-[100px] rounded-full pointer-events-none -z-10"></div>
