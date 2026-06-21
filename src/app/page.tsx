@@ -671,6 +671,17 @@ export default function Home() {
         onClose={() => setShowCatalog(false)} 
         whatsappNumber={whatsappNumber} 
       />
+
+      {/* Apple-style Toast Notification for Copy Address */}
+      <div 
+        className={`fixed top-8 sm:top-12 left-1/2 -translate-x-1/2 z-[300] transition-all duration-500 transform-gpu flex items-center gap-3 bg-[#111]/90 backdrop-blur-xl border border-white/10 px-6 py-3.5 rounded-full shadow-[0_20px_60px_rgba(0,0,0,0.5)] pointer-events-none ${isCopied ? 'translate-y-0 opacity-100 scale-100' : '-translate-y-16 opacity-0 scale-90'}`}
+        style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+      >
+        <div className="w-8 h-8 rounded-full bg-[#FBC02D] flex items-center justify-center shadow-inner shrink-0">
+          <CheckCircle2 className="w-5 h-5 text-[#3E2723]" />
+        </div>
+        <span className="font-bold text-white tracking-widest uppercase text-[10px] sm:text-xs">Endereço Copiado</span>
+      </div>
     </div>
   );
 }
