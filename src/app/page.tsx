@@ -55,7 +55,7 @@ export default function Home() {
             
             <div className="text-center font-serif flex flex-col items-center">
               <span className="tracking-[0.3em] uppercase text-[9px] md:text-[10px] font-medium text-[#FBC02D] mb-1">Desde 2008</span>
-              <span className="italic text-2xl md:text-3xl leading-none">Pâtisserie</span>
+              <span className="italic text-2xl md:text-3xl leading-none">Pães & Delícias</span>
             </div>
 
             <div className="hidden md:flex gap-12 text-sm tracking-widest uppercase font-light items-center">
@@ -183,7 +183,7 @@ export default function Home() {
       {/* Minimal Footer */}
       <footer className="py-12 md:py-20 border-t border-[#3E2723]/10">
         <div className="container mx-auto px-8 md:px-16 max-w-7xl flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="font-serif text-2xl italic text-[#3E2723]">Pâtisserie</div>
+          <div className="font-serif text-2xl italic text-[#3E2723]">Pães & Delícias</div>
           <div className="flex gap-8 text-xs font-light tracking-widest uppercase text-[#3E2723]/60">
             <a href="#" className="hover:text-[#E64A19]">Instagram</a>
             <a href="https://wa.me/556599364197?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20as%20encomendas." target="_blank" rel="noopener noreferrer" className="hover:text-[#E64A19]">WhatsApp</a>
