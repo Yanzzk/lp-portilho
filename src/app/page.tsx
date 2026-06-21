@@ -4,6 +4,7 @@ import { Menu, ShoppingBag, CheckCircle2, Star, ShieldCheck, Clock, ArrowRight, 
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import { InteractiveCatalog } from "@/components/InteractiveCatalog";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,6 +13,7 @@ export default function Home() {
   const [zoomImageSrc, setZoomImageSrc] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showWelcome, setShowWelcome] = useState(false);
+  const [showCatalog, setShowCatalog] = useState(false);
   const whatsappNumber = "556599364197";
 
   useEffect(() => {
@@ -31,19 +33,22 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (isMenuOpen || showFachadaModal || zoomImageSrc !== null) {
+    if (isMenuOpen || showFachadaModal || zoomImageSrc !== null || showCatalog) {
       document.body.style.overflow = 'hidden';
       // Prevent iOS rubber banding
-      document.documentElement.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
     } else {
       document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
     }
     return () => {
       document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
     };
-  }, [isMenuOpen, showFachadaModal, zoomImageSrc]);
+  }, [isMenuOpen, showFachadaModal, zoomImageSrc, showCatalog]);
 
   const handleCopyAddress = () => {
     navigator.clipboard.writeText("Av. Papa Paulo VI, 108 - Centro, Arenápolis - MT");
@@ -82,17 +87,15 @@ export default function Home() {
             </button>
           </div>
           <div className="flex flex-col gap-8 text-2xl font-bold">
-            <a href="#catalogo" onClick={() => setIsMenuOpen(false)} className="hover:text-[#FBC02D] transition-colors">Cardápio VIP</a>
-            <a href="#garantia" onClick={() => setIsMenuOpen(false)} className="hover:text-[#FBC02D] transition-colors">Garantia de Frescor</a>
-            <a href="#localizacao" onClick={() => setIsMenuOpen(false)} className="hover:text-[#FBC02D] transition-colors">Nossa Localização</a>
-            <a 
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá! Quero furar a fila do balcão e ter acesso ao Cardápio VIP da Pães & Delícias.")}`} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <button onClick={() => { setIsMenuOpen(false); setShowCatalog(true); }} className="hover:text-[#FBC02D] transition-colors text-left">Cardápio Interativo</button>
+            <a href="#garantia" onClick={() => setIsMenuOpen(false)} className="hover:text-[#FBC02D] transition-colors text-left">Garantia de Frescor</a>
+            <a href="#localizacao" onClick={() => setIsMenuOpen(false)} className="hover:text-[#FBC02D] transition-colors text-left">Nossa Localização</a>
+            <button 
+              onClick={() => { setIsMenuOpen(false); setShowCatalog(true); }}
               className="text-[#E64A19] flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
-              <Clock className="w-6 h-6" /> Pedir Agora
-            </a>
+              <ShoppingBag className="w-6 h-6" /> Fazer Pedido
+            </button>
           </div>
         </div>
       )}
@@ -125,20 +128,18 @@ export default function Home() {
           </div>
           
           <div className="hidden md:flex gap-8 font-bold text-sm text-[#3E2723]">
-            <a href="#catalogo" className="hover:text-[#E64A19] transition-colors">Cardápio VIP</a>
+            <button onClick={() => setShowCatalog(true)} className="hover:text-[#E64A19] transition-colors">Cardápio VIP</button>
             <a href="#garantia" className="hover:text-[#E64A19] transition-colors">Nossa Garantia</a>
             <a href="#localizacao" className="hover:text-[#E64A19] transition-colors">Nossa Localização</a>
           </div>
 
-          <a 
-            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá! Quero furar a fila do balcão e ter acesso ao Cardápio VIP da Pães & Delícias.")}`} 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <button 
+            onClick={() => setShowCatalog(true)}
             className="hidden md:flex items-center gap-2 bg-[#FBC02D]/20 text-[#3E2723] px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#FBC02D]/40 hover:-translate-y-1 transition-all"
           >
             <Clock className="w-4 h-4 text-[#E64A19]" />
             Atendimento Rápido
-          </a>
+          </button>
         </div>
       </header>
 
@@ -196,17 +197,13 @@ export default function Home() {
             </p>
             
             <div className="pt-8 w-full md:w-auto flex flex-col items-center gap-4">
-              <a 
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá! Quero furar a fila do balcão e ter acesso ao Cardápio VIP da Pães & Delícias.")}`}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button 
+                onClick={() => setShowCatalog(true)}
                 className="bg-[#E64A19] text-white font-black py-4 md:py-5 px-6 md:px-12 rounded-xl flex items-center justify-center gap-3 w-full sm:w-auto shadow-[0_15px_35px_rgba(230,74,25,0.4)] hover:bg-[#d84013] hover:-translate-y-1 transition-all duration-300 active:scale-[0.98] text-lg md:text-xl"
               >
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-                </svg>
-                ENCOMENDAR AGORA NO WHATSAPP
-              </a>
+                <ShoppingBag className="w-6 h-6" />
+                ACESSAR CATÁLOGO DIGITAL
+              </button>
               <div className="flex items-center gap-2 text-xs md:text-sm font-bold text-[#FBC02D] mt-2 drop-shadow-md">
                 <Star className="w-3.5 h-3.5 fill-current" /><Star className="w-3.5 h-3.5 fill-current" /><Star className="w-3.5 h-3.5 fill-current" /><Star className="w-3.5 h-3.5 fill-current" /><Star className="w-3.5 h-3.5 fill-current" />
                 <span className="text-white/90">| +16 anos no bairro Vila Nova</span>
@@ -239,19 +236,17 @@ export default function Home() {
                 </div>
                 
                 <div className="pt-4 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                  <a 
-                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá! Vi o site e quero acesso ao Cardápio VIP. Qual a disponibilidade para as delícias de hoje?")}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button 
+                    onClick={() => setShowCatalog(true)}
                     className="w-full sm:w-auto bg-[#25D366] text-white font-black py-4 px-8 rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.3)] hover:bg-[#20bd5a] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg uppercase tracking-wide"
                   >
-                    Quero o Cardápio VIP <ArrowRight className="w-5 h-5" />
-                  </a>
+                    ACESSAR CATÁLOGO <ArrowRight className="w-5 h-5" />
+                  </button>
                 </div>
                 
                 <div className="flex items-center justify-center lg:justify-start gap-4 text-sm font-bold text-white/60 pt-4 border-t border-white/10">
                   <div className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-[#FBC02D]" /> Compra Segura</div>
-                  <div className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-[#FBC02D]" /> Resposta Imediata</div>
+                  <div className="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-[#FBC02D]" /> Resposta Imediata</div>
                 </div>
               </div>
 
@@ -321,14 +316,12 @@ export default function Home() {
 
                     <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-3 transform-gpu transition-all duration-300 md:translate-y-4 md:group-hover/item:translate-y-0 z-20">
                        <h3 className="text-white font-serif font-bold text-xl md:text-2xl drop-shadow-md pointer-events-none">Item Fresco #{realIndex+1}</h3>
-                       <a 
-                         href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Olá! Vi o Item Fresco #${realIndex+1} no site e gostaria de saber se está disponível hoje.`)}`}
-                         target="_blank"
-                         rel="noopener noreferrer"
+                       <button 
+                         onClick={() => setShowCatalog(true)}
                          className="w-full bg-[#E64A19] text-white text-[10px] sm:text-xs font-black tracking-widest uppercase px-5 py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 hover:bg-[#d84013] transition-colors relative z-30"
                        >
                          Consultar Valor <ArrowRight className="w-4 h-4" />
-                       </a>
+                       </button>
                     </div>
                   </div>
                 );
@@ -564,15 +557,13 @@ export default function Home() {
           <div className="container mx-auto px-6 max-w-4xl space-y-8">
             <h2 className="font-serif text-3xl font-bold">Sua festa não pode esperar.</h2>
             <p className="text-[#FBC02D] font-bold">Nossa produção é estritamente limitada para os finais de semana.</p>
-            <a 
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá! Sei que a produção é limitada para o final de semana. Quero garantir minha encomenda VIP agora!")}`} 
-              target="_blank"
-              rel="noopener noreferrer"
+            <button 
+              onClick={() => setShowCatalog(true)}
               className="inline-flex bg-[#25D366] text-white font-black py-4 px-10 rounded-xl items-center gap-3 shadow-[0_10px_30px_rgba(37,211,102,0.2)] hover:bg-[#20bd5a] hover:-translate-y-1 transition-all text-xl mt-4"
             >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-              ENCOMENDAR AGORA
-            </a>
+              <ShoppingBag className="w-6 h-6" />
+              ABRIR CATÁLOGO AGORA
+            </button>
             <div className="pt-12 text-[#FFF8E1]/50 text-xs md:text-sm">
               &copy; {new Date().getFullYear()} Panificadora Pães &amp; Delícias - Arenápolis/MT. <br/>
               Todos os direitos reservados.
@@ -639,6 +630,13 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* Catálogo Interativo */}
+      <InteractiveCatalog 
+        isOpen={showCatalog} 
+        onClose={() => setShowCatalog(false)} 
+        whatsappNumber={whatsappNumber} 
+      />
     </div>
   );
 }
