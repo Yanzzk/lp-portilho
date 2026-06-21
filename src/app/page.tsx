@@ -11,23 +11,36 @@ export default function Home() {
   const [showFachadaModal, setShowFachadaModal] = useState(false);
   const [zoomImageSrc, setZoomImageSrc] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [showWelcome, setShowWelcome] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(true);
+  const [isFadingOut, setIsFadingOut] = useState(false);
   const [showCatalog, setShowCatalog] = useState(false);
   const whatsappNumber = "556599364197";
 
   useEffect(() => {
     // Logica da Tela de Boas-Vindas
-    if (!sessionStorage.getItem('hasSeenWelcome')) {
-      setShowWelcome(true);
+    if (sessionStorage.getItem('hasSeenWelcome')) {
+      setShowWelcome(false);
+    } else {
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
       
-      const timer = setTimeout(() => {
+      const fadeTimer = setTimeout(() => {
+        setIsFadingOut(true);
+      }, 3000);
+
+      const removeTimer = setTimeout(() => {
         setShowWelcome(false);
         sessionStorage.setItem('hasSeenWelcome', 'true');
         document.body.style.overflow = '';
-      }, 2500);
+        document.body.style.position = '';
+        document.body.style.width = '';
+      }, 4000);
       
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(fadeTimer);
+        clearTimeout(removeTimer);
+      };
     }
   }, []);
 
@@ -61,10 +74,9 @@ export default function Home() {
       {/* Welcome Splash Screen (Apple Style) */}
       {showWelcome && (
         <div 
-          className="fixed inset-0 z-[200] bg-[#111] text-[#FFF8E1] flex flex-col items-center justify-center transition-opacity duration-1000 animate-out fade-out fill-mode-forwards"
-          style={{ animationDelay: '2s' }}
+          className={`fixed inset-0 z-[200] bg-[#111] text-[#FFF8E1] flex flex-col items-center justify-center transition-opacity duration-1000 touch-none ${isFadingOut ? 'opacity-0' : 'opacity-100'}`}
         >
-          <div className="flex flex-col items-center gap-6 animate-in fade-in slide-in-from-bottom-10 duration-1000">
+          <div className="flex flex-col items-center gap-6 animate-in fade-in zoom-in-95 duration-1000">
              <div className="relative w-40 h-40 drop-shadow-[0_0_40px_rgba(251,192,45,0.3)]">
                 <Image src="/images/logo.png" alt="Panificadora Pães & Delícias" fill className="object-contain" priority />
              </div>
