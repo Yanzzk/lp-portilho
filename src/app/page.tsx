@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, ShoppingBag, CheckCircle2, Star, ShieldCheck, Clock, ArrowRight, X, MapPin, Car, Copy } from "lucide-react";
+import { Menu, ShoppingBag, CheckCircle2, Star, ShieldCheck, Clock, ArrowRight, X, MapPin, Car, Copy, ZoomIn } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
@@ -263,7 +263,7 @@ export default function Home() {
             <div className="absolute top-0 bottom-0 left-0 w-[5vw] md:w-[15vw] bg-gradient-to-r from-[#FFF8E1] to-transparent z-10 pointer-events-none"></div>
             <div className="absolute top-0 bottom-0 right-0 w-[5vw] md:w-[15vw] bg-gradient-to-l from-[#FFF8E1] to-transparent z-10 pointer-events-none"></div>
             
-            <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]" style={{ animationDuration: '40s' }}>
+            <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] group-active:[animation-play-state:paused] focus-within:[animation-play-state:paused]" style={{ animationDuration: '80s' }}>
               {[...Array(15), ...Array(15)].map((_, i) => {
                 const realIndex = i % 15;
                 return (
@@ -279,8 +279,8 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/90 via-[#3E2723]/20 to-transparent opacity-60 md:opacity-80 transition-opacity duration-300 pointer-events-none z-0"></div>
                     
                     {/* Zoom Hint */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/50 border border-white/20 text-white text-[10px] sm:text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full opacity-80 md:opacity-0 md:group-hover/item:opacity-100 transition-all duration-300 pointer-events-none shadow-lg flex items-center gap-2 transform-gpu md:translate-y-4 md:group-hover/item:translate-y-0 z-10 backdrop-blur-sm">
-                      <span className="text-sm">🔍</span> AMPLIAR
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#3E2723]/80 border border-[#FBC02D]/30 text-[#FFF8E1] text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase px-6 py-3 rounded-full opacity-80 md:opacity-0 md:group-hover/item:opacity-100 md:group-active/item:opacity-100 transition-all duration-300 pointer-events-none shadow-[0_10px_20px_rgba(0,0,0,0.5)] flex items-center gap-2.5 transform-gpu md:translate-y-4 md:group-hover/item:translate-y-0 z-10 backdrop-blur-md">
+                      <ZoomIn className="w-4 h-4 text-[#FBC02D]" /> AMPLIAR
                     </div>
 
                     <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-3 transform-gpu transition-all duration-300 md:translate-y-4 md:group-hover/item:translate-y-0 z-20">
@@ -538,8 +538,8 @@ export default function Home() {
               ENCOMENDAR AGORA
             </a>
             <div className="pt-12 text-[#FFF8E1]/50 text-xs md:text-sm">
-              © 2026 Panificadora Pães & Delícias - Arenápolis/MT. <br/>
-              CNPJ: 11.000.000/0001-00 | Resp. Pautilho B. Ribeiro Neto
+              &copy; {new Date().getFullYear()} Panificadora Pães &amp; Delícias - Arenápolis/MT. <br/>
+              Todos os direitos reservados.
             </div>
           </div>
         </footer>
