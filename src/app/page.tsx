@@ -9,11 +9,11 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const [showFachadaModal, setShowFachadaModal] = useState(false);
-  const [showFachadaZoom, setShowFachadaZoom] = useState(false);
+  const [zoomImageSrc, setZoomImageSrc] = useState<string | null>(null);
   const whatsappNumber = "556599364197";
 
   useEffect(() => {
-    if (isMenuOpen || showFachadaModal || showFachadaZoom) {
+    if (isMenuOpen || showFachadaModal || zoomImageSrc !== null) {
       document.body.style.overflow = 'hidden';
       // Prevent iOS rubber banding
       document.documentElement.style.overflow = 'hidden';
@@ -217,20 +217,26 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex justify-center relative order-1 lg:order-2">
-                <div className="relative w-[280px] md:w-[320px] h-[580px] md:h-[650px] bg-[#111] rounded-[3rem] border-[8px] border-slate-800 shadow-[0_30px_60px_rgba(0,0,0,0.5)] overflow-hidden">
+              <div className="flex justify-center relative order-1 lg:order-2 group/mockup">
+                <div 
+                  className="relative w-[280px] md:w-[320px] h-[580px] md:h-[650px] bg-[#111] rounded-[3rem] border-[8px] border-slate-800 shadow-[0_30px_60px_rgba(0,0,0,0.5)] overflow-hidden cursor-pointer"
+                  onClick={() => setZoomImageSrc("/images/mockup-produto-008.webp")}
+                >
                   <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-20"></div>
                   <Image 
                     src="/images/mockup-produto-008.webp" 
                     alt="Pães e Delícias no celular"
                     fill
-                    className="absolute inset-0 w-full h-full object-cover z-10"
+                    className="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-700 md:group-hover/mockup:scale-105"
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10 flex items-end justify-center pb-8">
                     <div className="animate-pulse bg-[#E64A19] text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest shadow-lg">
                       Fresco de Hoje
                     </div>
+                  </div>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/50 border border-white/20 text-white text-[10px] sm:text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full opacity-80 md:opacity-0 md:group-hover/mockup:opacity-100 transition-all duration-300 pointer-events-none shadow-lg flex items-center gap-2 transform-gpu md:translate-y-4 md:group-hover/mockup:translate-y-0 z-20 backdrop-blur-sm">
+                    <span className="text-sm">🔍</span> AMPLIAR
                   </div>
                 </div>
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] md:w-[400px] h-[600px] bg-[#E64A19]/20 blur-[100px] rounded-full pointer-events-none -z-10"></div>
@@ -260,22 +266,28 @@ export default function Home() {
                 const realIndex = i % 15;
                 return (
                   <div key={i} className="group/item relative flex-none w-[70vw] sm:w-[300px] md:w-[320px] aspect-[4/5] mx-3 md:mx-4 rounded-[2rem] overflow-hidden border border-[#3E2723]/10 hover:border-[#E64A19]/50 shadow-lg hover:shadow-[0_20px_40px_rgba(230,74,25,0.2)] transition-all duration-500 ease-out bg-[#3E2723]/5 cursor-pointer touch-manipulation transform-gpu" style={{ transform: 'translate3d(0,0,0)', backfaceVisibility: 'hidden' }}>
+                    <div className="absolute inset-0 z-0" onClick={() => setZoomImageSrc(`/images/produtos/produto-${String(realIndex+1).padStart(3, '0')}.webp`)}></div>
                     <Image 
                       src={`/images/produtos/produto-${String(realIndex+1).padStart(3, '0')}.webp`}
                       alt={`Produto Artesanal ${realIndex+1}`}
                       fill
-                      className="w-full h-full object-cover object-center transition-transform duration-700 md:group-hover/item:scale-105 select-none pointer-events-none transform-gpu"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 md:group-hover/item:scale-105 select-none pointer-events-none transform-gpu -z-10"
                       sizes="(max-width: 640px) 70vw, 320px"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/90 via-[#3E2723]/20 to-transparent opacity-60 md:opacity-80 transition-opacity duration-300 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/90 via-[#3E2723]/20 to-transparent opacity-60 md:opacity-80 transition-opacity duration-300 pointer-events-none z-0"></div>
                     
-                    <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-3 transform-gpu transition-all duration-300 md:translate-y-4 md:group-hover/item:translate-y-0">
-                       <h3 className="text-white font-serif font-bold text-xl md:text-2xl drop-shadow-md">Item Fresco #{realIndex+1}</h3>
+                    {/* Zoom Hint */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/50 border border-white/20 text-white text-[10px] sm:text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full opacity-80 md:opacity-0 md:group-hover/item:opacity-100 transition-all duration-300 pointer-events-none shadow-lg flex items-center gap-2 transform-gpu md:translate-y-4 md:group-hover/item:translate-y-0 z-10 backdrop-blur-sm">
+                      <span className="text-sm">🔍</span> AMPLIAR
+                    </div>
+
+                    <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-3 transform-gpu transition-all duration-300 md:translate-y-4 md:group-hover/item:translate-y-0 z-20">
+                       <h3 className="text-white font-serif font-bold text-xl md:text-2xl drop-shadow-md pointer-events-none">Item Fresco #{realIndex+1}</h3>
                        <a 
                          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Olá! Vi o Item Fresco #${realIndex+1} no site e gostaria de saber se está disponível hoje.`)}`}
                          target="_blank"
                          rel="noopener noreferrer"
-                         className="w-full bg-[#E64A19] text-white text-[10px] sm:text-xs font-black tracking-widest uppercase px-5 py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 hover:bg-[#d84013] transition-colors"
+                         className="w-full bg-[#E64A19] text-white text-[10px] sm:text-xs font-black tracking-widest uppercase px-5 py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 hover:bg-[#d84013] transition-colors relative z-30"
                        >
                          Consultar Valor <ArrowRight className="w-4 h-4" />
                        </a>
@@ -471,7 +483,7 @@ export default function Home() {
       </main>
 
       {/* Fachada Modal Confirmation */}
-      {showFachadaModal && !showFachadaZoom && (
+      {showFachadaModal && !zoomImageSrc && (
         <div className="fixed inset-0 z-[110] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl p-8 max-w-sm w-full text-center space-y-6 shadow-2xl animate-in fade-in zoom-in duration-300">
             <h3 className="font-serif text-2xl font-bold text-[#3E2723]">Deseja conhecer nosso espaço em detalhes?</h3>
@@ -479,7 +491,7 @@ export default function Home() {
               <button 
                 onClick={() => {
                   setShowFachadaModal(false);
-                  setShowFachadaZoom(true);
+                  setZoomImageSrc("/images/fachada.webp");
                 }}
                 className="w-full bg-[#E64A19] text-white font-bold py-4 rounded-xl hover:bg-[#d84013] transition-colors uppercase tracking-widest text-sm shadow-lg"
               >
@@ -496,12 +508,14 @@ export default function Home() {
         </div>
       )}
 
-      {/* Fachada Zoom Viewer */}
-      {showFachadaZoom && (
+      {/* Generic Zoom Viewer */}
+      {zoomImageSrc && (
         <div className="fixed inset-0 z-[120] bg-[#111] flex flex-col animate-in fade-in duration-300">
           <div className="absolute top-6 right-6 z-[130]">
             <button 
-              onClick={() => setShowFachadaZoom(false)}
+              onClick={() => {
+                setZoomImageSrc(null);
+              }}
               className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors shadow-lg"
             >
               <X className="w-6 h-6 text-white" />
@@ -516,8 +530,8 @@ export default function Home() {
             >
               <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }} contentStyle={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <img 
-                  src="/images/fachada.webp" 
-                  alt="Fachada Ampliada" 
+                  src={zoomImageSrc} 
+                  alt="Imagem Ampliada" 
                   className="max-w-[95vw] max-h-[85vh] object-contain rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] select-none pointer-events-auto"
                   draggable="false"
                 />
