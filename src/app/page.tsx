@@ -250,24 +250,29 @@ export default function Home() {
              </p>
           </div>
 
-          <div className="relative w-full py-4">
-            <div className="w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide flex [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
-              <div className="flex w-max py-8 px-[5vw] md:px-[10vw] gap-4 md:gap-6">
-                {Array.from({ length: 15 }).map((_, i) => (
-                  <div key={i} className="snap-center group relative flex-none w-[75vw] sm:w-[300px] md:w-[340px] aspect-[4/5] rounded-[2rem] overflow-hidden border border-[#3E2723]/10 hover:border-[#E64A19]/50 shadow-lg hover:shadow-[0_20px_40px_rgba(230,74,25,0.2)] transition-all duration-500 ease-out bg-[#3E2723]/5 transform-gpu" style={{ transform: 'translate3d(0,0,0)', backfaceVisibility: 'hidden' }}>
+          <div className="relative w-full py-8 overflow-hidden group">
+            {/* Gradiente nas bordas para suavizar a entrada/saída */}
+            <div className="absolute top-0 bottom-0 left-0 w-[5vw] md:w-[15vw] bg-gradient-to-r from-[#FFF8E1] to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute top-0 bottom-0 right-0 w-[5vw] md:w-[15vw] bg-gradient-to-l from-[#FFF8E1] to-transparent z-10 pointer-events-none"></div>
+            
+            <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]" style={{ animationDuration: '40s' }}>
+              {[...Array(15), ...Array(15)].map((_, i) => {
+                const realIndex = i % 15;
+                return (
+                  <div key={i} className="group/item relative flex-none w-[70vw] sm:w-[300px] md:w-[320px] aspect-[4/5] mx-3 md:mx-4 rounded-[2rem] overflow-hidden border border-[#3E2723]/10 hover:border-[#E64A19]/50 shadow-lg hover:shadow-[0_20px_40px_rgba(230,74,25,0.2)] transition-all duration-500 ease-out bg-[#3E2723]/5 cursor-pointer touch-manipulation transform-gpu" style={{ transform: 'translate3d(0,0,0)', backfaceVisibility: 'hidden' }}>
                     <Image 
-                      src={`/images/produtos/produto-${String(i+1).padStart(3, '0')}.webp`}
-                      alt={`Produto Artesanal ${i+1}`}
+                      src={`/images/produtos/produto-${String(realIndex+1).padStart(3, '0')}.webp`}
+                      alt={`Produto Artesanal ${realIndex+1}`}
                       fill
-                      className="w-full h-full object-cover object-center transition-transform duration-700 md:group-hover:scale-105 select-none pointer-events-none transform-gpu"
-                      sizes="(max-width: 640px) 75vw, 340px"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 md:group-hover/item:scale-105 select-none pointer-events-none transform-gpu"
+                      sizes="(max-width: 640px) 70vw, 320px"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/90 via-[#3E2723]/20 to-transparent opacity-60 md:opacity-80 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/90 via-[#3E2723]/20 to-transparent opacity-60 md:opacity-80 transition-opacity duration-300 pointer-events-none"></div>
                     
-                    <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-3 transform-gpu transition-all duration-300 md:translate-y-4 md:group-hover:translate-y-0">
-                       <h3 className="text-white font-serif font-bold text-xl md:text-2xl drop-shadow-md">Item Fresco #{i+1}</h3>
+                    <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-3 transform-gpu transition-all duration-300 md:translate-y-4 md:group-hover/item:translate-y-0">
+                       <h3 className="text-white font-serif font-bold text-xl md:text-2xl drop-shadow-md">Item Fresco #{realIndex+1}</h3>
                        <a 
-                         href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Olá! Vi o Item Fresco #${i+1} no site e gostaria de saber se está disponível hoje.`)}`}
+                         href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Olá! Vi o Item Fresco #${realIndex+1} no site e gostaria de saber se está disponível hoje.`)}`}
                          target="_blank"
                          rel="noopener noreferrer"
                          className="w-full bg-[#E64A19] text-white text-[10px] sm:text-xs font-black tracking-widest uppercase px-5 py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 hover:bg-[#d84013] transition-colors"
@@ -276,8 +281,9 @@ export default function Home() {
                        </a>
                     </div>
                   </div>
-                ))}
-              </div>
+                );
+              })}
+            </div>
             </div>
           </div>
         </section>
