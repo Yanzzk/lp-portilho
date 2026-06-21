@@ -2,7 +2,7 @@
 
 import { Menu, ShoppingBag, CheckCircle2, Star, ShieldCheck, Clock, ArrowRight, X, MapPin, Car, Copy } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 export default function Home() {
@@ -11,6 +11,21 @@ export default function Home() {
   const [showFachadaModal, setShowFachadaModal] = useState(false);
   const [showFachadaZoom, setShowFachadaZoom] = useState(false);
   const whatsappNumber = "556599364197";
+
+  useEffect(() => {
+    if (isMenuOpen || showFachadaModal || showFachadaZoom) {
+      document.body.style.overflow = 'hidden';
+      // Prevent iOS rubber banding
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, [isMenuOpen, showFachadaModal, showFachadaZoom]);
 
   const handleCopyAddress = () => {
     navigator.clipboard.writeText("Av. Papa Paulo VI, 108 - Centro, Arenápolis - MT");
