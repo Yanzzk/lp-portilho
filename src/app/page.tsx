@@ -59,7 +59,7 @@ export default function Home() {
             </div>
 
             <div className="hidden md:flex gap-12 text-sm tracking-widest uppercase font-light items-center">
-              <a href="#encomendas" className="hover:text-[#FBC02D] transition-colors">Encomendas</a>
+              <a href="https://wa.me/556599364197?text=Ol%C3%A1%21%20Quero%20garantir%20minha%20encomenda%20VIP%20na%20P%C3%A3es%20%26%20Del%C3%ADcias." target="_blank" rel="noopener noreferrer" className="hover:text-[#FBC02D] transition-colors">Encomendas</a>
               <button className="relative hover:opacity-70 transition-opacity" aria-label="Sacola">
                 <ShoppingBag className="w-5 h-5" strokeWidth={1.5} />
                 <span className="absolute -top-1.5 -right-2 bg-[#E64A19] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
@@ -88,7 +88,7 @@ export default function Home() {
           </p>
           <div className="pt-8">
             <a 
-              href="https://wa.me/5511999999999?text=Olá,%20quero%20fazer%20uma%20encomenda!" 
+              href="https://wa.me/556599364197?text=Ol%C3%A1%21%20Quero%20garantir%20minha%20encomenda%20VIP%20na%20P%C3%A3es%20%26%20Del%C3%ADcias%20com%20frescor%20garantido." 
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full text-sm tracking-[0.15em] uppercase hover:bg-white/20 transition-all duration-300"
@@ -144,7 +144,9 @@ export default function Home() {
                 {item.price}
               </p>
               <a 
-                href="#encomendas" 
+                href={`https://wa.me/556599364197?text=${encodeURIComponent(`Olá! Quero adicionar o ${item.title} ao meu pedido VIP na Pães & Delícias.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="font-sans text-xs uppercase tracking-widest text-[#3E2723] border-b border-[#3E2723]/30 pb-1 hover:border-[#E64A19] hover:text-[#E64A19] transition-colors"
               >
                 Adicionar ao Pedido
@@ -154,8 +156,13 @@ export default function Home() {
         </div>
         
         <div className="mt-20 flex justify-center">
-           <a href="#catalogo" className="inline-flex items-center gap-3 text-[#3E2723] border border-[#3E2723]/20 px-8 py-3 rounded-full text-xs uppercase tracking-widest hover:bg-[#3E2723] hover:text-[#FFF8E1] transition-all duration-300">
-             Ver Menu Completo
+           <a 
+             href="https://wa.me/556599364197?text=Ol%C3%A1%21%20Gostaria%20de%20receber%20o%20Card%C3%A1pio%20VIP%20completo%20da%20P%C3%A3es%20%26%20Del%C3%ADcias." 
+             target="_blank"
+             rel="noopener noreferrer"
+             className="inline-flex items-center gap-3 text-[#3E2723] border border-[#3E2723]/20 px-8 py-3 rounded-full text-xs uppercase tracking-widest hover:bg-[#3E2723] hover:text-[#FFF8E1] transition-all duration-300"
+           >
+             Pedir Menu no WhatsApp
            </a>
         </div>
       </section>
@@ -179,7 +186,7 @@ export default function Home() {
           <div className="font-serif text-2xl italic text-[#3E2723]">Pâtisserie</div>
           <div className="flex gap-8 text-xs font-light tracking-widest uppercase text-[#3E2723]/60">
             <a href="#" className="hover:text-[#E64A19]">Instagram</a>
-            <a href="#" className="hover:text-[#E64A19]">WhatsApp</a>
+            <a href="https://wa.me/556599364197?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20as%20encomendas." target="_blank" rel="noopener noreferrer" className="hover:text-[#E64A19]">WhatsApp</a>
           </div>
           <p className="text-xs font-light text-[#3E2723]/50">
             © 2026 Pães & Delícias. Todos os direitos reservados.
