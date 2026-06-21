@@ -285,6 +285,78 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Social Proof Component (Hormozi Pilar 2) */}
+        <section className="container mx-auto px-4 md:px-6 relative z-20 pt-16 md:pt-20 pb-8 md:pb-12 bg-white border-t border-[#3E2723]/5">
+          <div className="max-w-[90%] md:max-w-5xl mx-auto bg-white border border-[#E64A19]/10 shadow-[0_20px_40px_-15px_rgba(230,74,25,0.1)] rounded-3xl py-8 md:py-10 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FBC02D] to-transparent opacity-50"></div>
+            
+            <div className="hidden md:grid md:grid-cols-3 divide-x divide-[#3E2723]/10 items-center">
+              <div className="flex flex-col items-center justify-center text-center px-8">
+                <span className="block text-5xl font-sans font-black text-[#3E2723] mb-3 tracking-[0.05em] tabular-nums">+16</span>
+                <div className="relative w-full flex justify-center">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#E64A19]">Anos de Tradição</span>
+                </div>
+              </div>
+              
+              <div className="flex flex-col items-center justify-center text-center px-8">
+                <div className="flex gap-2 mb-3 relative overflow-hidden p-1 text-[#FBC02D]">
+                  <Star className="w-6 h-6 fill-current z-10" />
+                  <Star className="w-6 h-6 fill-current z-10" />
+                  <Star className="w-6 h-6 fill-current z-10" />
+                  <Star className="w-6 h-6 fill-current z-10" />
+                  <Star className="w-6 h-6 fill-current z-10" />
+                  <div className="absolute top-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-white/60 to-transparent skew-x-12 z-20 pointer-events-none"></div>
+                </div>
+                <span className="text-sm font-bold text-[#3E2723]/80 tracking-wide">Média 5.0 no Google</span>
+              </div>
+              
+              <div className="flex flex-col items-center justify-center text-center px-8">
+                <div className="mb-3 p-3 bg-[#FFF8E1] rounded-full text-[#E64A19] shadow-inner">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <p className="text-base font-black text-[#3E2723]">Coração de Arenápolis, MT</p>
+                <span className="text-[10px] font-bold text-[#E64A19] mt-1 uppercase tracking-[0.15em]">Frescor Garantido</span>
+              </div>
+            </div>
+
+            {/* Mobile Version */}
+            <div className="md:hidden flex flex-col gap-6 px-6">
+              <div className="flex items-center justify-between border-b border-[#3E2723]/10 pb-5">
+                <div className="flex flex-col text-left">
+                  <span className="text-4xl font-black text-[#3E2723] tracking-[0.05em] tabular-nums">+16</span>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#E64A19] mt-1">Anos de Tradição</span>
+                </div>
+                <div className="h-12 w-12 bg-[#FFF8E1] rounded-full flex items-center justify-center text-[#E64A19] shadow-inner">
+                  <Star className="w-5 h-5 fill-current" />
+                </div>
+              </div>
+              
+              <div className="flex items-center justify-between border-b border-[#3E2723]/10 pb-5">
+                <div className="flex flex-col text-left">
+                  <div className="flex gap-1.5 mb-1.5 text-[#FBC02D] relative overflow-hidden">
+                     <Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" />
+                     <div className="absolute top-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-white/60 to-transparent skew-x-12 z-20 pointer-events-none"></div>
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#3E2723]/60">Google Reviews</span>
+                </div>
+                <div className="text-right">
+                  <span className="text-xl font-black text-[#3E2723]">5.0</span>
+                </div>
+              </div>
+              
+              <div className="flex items-center justify-between">
+                <div className="flex flex-col text-left">
+                  <span className="text-sm font-black text-[#3E2723]">Arenápolis, MT</span>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#E64A19] mt-1">Frescor Garantido</span>
+                </div>
+                <div className="h-10 w-10 bg-[#FFF8E1] rounded-full flex items-center justify-center text-[#E64A19]">
+                  <MapPin className="w-5 h-5" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Google Maps Section */}
         <section id="localizacao" className="py-24 md:py-32 bg-[#FAFAFA]">
           <div className="container mx-auto px-4 md:px-6 max-w-6xl">
