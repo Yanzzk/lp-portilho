@@ -3,10 +3,13 @@
 import { Menu, ShoppingBag, CheckCircle2, Star, ShieldCheck, Clock, ArrowRight, X, MapPin, Car, Copy } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
+  const [showFachadaModal, setShowFachadaModal] = useState(false);
+  const [showFachadaZoom, setShowFachadaZoom] = useState(false);
   const whatsappNumber = "556599364197";
 
   const handleCopyAddress = () => {
@@ -299,9 +302,15 @@ export default function Home() {
                 </a>
               </div>
               <div className="flex flex-col gap-8 w-full order-2">
-                <div className="relative w-full h-[240px] md:h-[300px] rounded-[32px] md:rounded-[40px] border border-[#E64A19]/20 overflow-hidden shadow-sm order-1 group/photo">
+                <div 
+                  className="relative w-full h-[240px] md:h-[300px] rounded-[32px] md:rounded-[40px] border border-[#E64A19]/20 overflow-hidden shadow-sm order-1 group/photo cursor-pointer"
+                  onClick={() => setShowFachadaModal(true)}
+                >
                   <Image alt="Fachada Pães e Delícias" fill className="object-cover object-center transform transition-transform duration-[4s] ease-out group-hover/photo:scale-105" src="/images/fachada.webp" />
                   <div className="absolute top-5 left-5 bg-white/95 px-5 py-2.5 rounded-full shadow-md text-[10px] md:text-xs font-bold tracking-[0.2em] text-[#3E2723] uppercase z-10 flex items-center gap-2 pointer-events-none">Nossa Fachada</div>
+                  <div className="absolute inset-0 bg-black/0 group-hover/photo:bg-black/30 transition-colors flex items-center justify-center opacity-0 group-hover/photo:opacity-100">
+                    <div className="bg-white/95 text-[#3E2723] px-5 py-2.5 rounded-full font-bold text-sm tracking-widest uppercase shadow-xl transform translate-y-4 group-hover/photo:translate-y-0 transition-transform">Ampliar Foto</div>
+                  </div>
                 </div>
                 <div className="bg-white rounded-[32px] md:rounded-[40px] p-8 md:p-10 lg:p-12 shadow-sm border border-gray-100/50 flex flex-col order-2">
                   <span className="text-[#E64A19] text-xs md:text-sm font-bold tracking-[0.3em] uppercase block mb-4">Sua Padaria</span>
@@ -367,6 +376,63 @@ export default function Home() {
           </div>
         </footer>
       </main>
+
+      {/* Fachada Modal Confirmation */}
+      {showFachadaModal && !showFachadaZoom && (
+        <div className="fixed inset-0 z-[110] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl p-8 max-w-sm w-full text-center space-y-6 shadow-2xl animate-in fade-in zoom-in duration-300">
+            <h3 className="font-serif text-2xl font-bold text-[#3E2723]">Deseja conhecer nosso espaço em detalhes?</h3>
+            <div className="flex flex-col gap-3">
+              <button 
+                onClick={() => {
+                  setShowFachadaModal(false);
+                  setShowFachadaZoom(true);
+                }}
+                className="w-full bg-[#E64A19] text-white font-bold py-4 rounded-xl hover:bg-[#d84013] transition-colors uppercase tracking-widest text-sm shadow-lg"
+              >
+                Explorar Agora
+              </button>
+              <button 
+                onClick={() => setShowFachadaModal(false)}
+                className="w-full bg-transparent text-[#3E2723]/60 font-bold py-4 rounded-xl hover:bg-gray-100 transition-colors uppercase tracking-widest text-sm"
+              >
+                Voltar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Fachada Zoom Viewer */}
+      {showFachadaZoom && (
+        <div className="fixed inset-0 z-[120] bg-[#111] flex flex-col animate-in fade-in duration-300">
+          <div className="absolute top-6 right-6 z-[130]">
+            <button 
+              onClick={() => setShowFachadaZoom(false)}
+              className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors shadow-lg"
+            >
+              <X className="w-6 h-6 text-white" />
+            </button>
+          </div>
+          <div className="flex-1 w-full h-full relative">
+            <TransformWrapper
+              initialScale={1}
+              minScale={0.5}
+              maxScale={4}
+              centerOnInit={true}
+            >
+              <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }} contentStyle={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <img 
+                  src="/images/fachada.webp" 
+                  alt="Fachada Ampliada" 
+                  className="max-w-[95vw] max-h-[85vh] object-contain rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] select-none pointer-events-auto"
+                  draggable="false"
+                />
+              </TransformComponent>
+            </TransformWrapper>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
