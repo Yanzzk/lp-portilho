@@ -108,17 +108,18 @@ export default function Home() {
       {/* Lema Animado (Marquee) */}
       <div className="bg-[#E64A19] text-[#FFF8E1] py-2 overflow-hidden flex whitespace-nowrap border-b-2 border-[#3E2723] shadow-inner relative z-20">
         <div className="animate-marquee flex gap-8 items-center text-[10px] md:text-xs font-black uppercase tracking-widest w-[200%]">
-          <span>👉 A TRADIÇÃO QUE ARENÁPOLIS AMA!!!</span>
+          <span>👉 Café da manhã, o melhor jeito para começar o seu dia!!!</span>
           <span className="text-[#FBC02D]">★</span>
-          <span>👉 A TRADIÇÃO QUE ARENÁPOLIS AMA!!!</span>
+          <span>A MELHOR PANIFICADORA DE ARENÁPOLIS-MT</span>
           <span className="text-[#FBC02D]">★</span>
-          <span>👉 A TRADIÇÃO QUE ARENÁPOLIS AMA!!!</span>
+          <span>👉 Café da manhã, o melhor jeito para começar o seu dia!!!</span>
           <span className="text-[#FBC02D]">★</span>
-          <span>👉 A TRADIÇÃO QUE ARENÁPOLIS AMA!!!</span>
+          <span>A MELHOR PANIFICADORA DE ARENÁPOLIS-MT</span>
           <span className="text-[#FBC02D]">★</span>
-          <span>👉 A TRADIÇÃO QUE ARENÁPOLIS AMA!!!</span>
+          <span>👉 Café da manhã, o melhor jeito para começar o seu dia!!!</span>
           <span className="text-[#FBC02D]">★</span>
-          <span>👉 A TRADIÇÃO QUE ARENÁPOLIS AMA!!!</span>
+          <span>A MELHOR PANIFICADORA DE ARENÁPOLIS-MT</span>
+          <span className="text-[#FBC02D]">★</span>
         </div>
       </div>
 
