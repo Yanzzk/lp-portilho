@@ -12,7 +12,6 @@ export const categories = [
   "Salgados Fritos",
   "Bolos Caseiros",
   "Pães Especiais",
-  "Bebidas",
 ];
 
 export const products: Product[] = [
@@ -102,16 +101,16 @@ export const products: Product[] = [
   },
   {
     id: "prod-13",
-    name: "Café Expresso",
+    name: "Bolo de Leite Ninho c/ Chocolate",
     price: "A Consultar",
-    category: "Bebidas",
+    category: "Bolos Caseiros",
     image: "/images/produtos/produto-012.webp",
   },
   {
     id: "prod-14",
-    name: "Suco Natural de Laranja",
+    name: "Torta Salgada Fatiada",
     price: "A Consultar",
-    category: "Bebidas",
+    category: "Salgados Assados",
     image: "/images/produtos/produto-013.webp",
   },
   {
