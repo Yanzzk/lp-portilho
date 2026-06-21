@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, ShoppingBag, CheckCircle2, Star, ShieldCheck, Clock, ArrowRight, X, MapPin, Car, Copy, ZoomIn } from "lucide-react";
+import { Menu, ShoppingBag, CheckCircle2, Star, ShieldCheck, Clock, ArrowRight, X, MapPin, Car, Copy, ZoomIn, Instagram, Facebook } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
@@ -66,10 +66,10 @@ export default function Home() {
           style={{ animationDelay: '2s' }}
         >
           <div className="flex flex-col items-center gap-6 animate-in fade-in slide-in-from-bottom-10 duration-1000">
-             <div className="w-20 h-20 bg-gradient-to-br from-[#FBC02D] to-[#E64A19] rounded-full flex items-center justify-center text-[#111] shadow-[0_0_50px_rgba(251,192,45,0.4)]">
-                <Star className="w-10 h-10 fill-current" />
+             <div className="relative w-40 h-40 drop-shadow-[0_0_40px_rgba(251,192,45,0.3)]">
+                <Image src="/images/logo.png" alt="Panificadora Pães & Delícias" fill className="object-contain" priority />
              </div>
-             <h1 className="font-serif text-3xl md:text-5xl font-black tracking-widest uppercase text-center max-w-lg leading-tight px-4">
+             <h1 className="font-serif text-3xl md:text-5xl font-black tracking-widest uppercase text-center max-w-lg leading-tight px-4 mt-2">
                A Tradição de <br/><span className="text-[#FBC02D]">Arenápolis</span>
              </h1>
              <div className="h-[2px] w-32 bg-gradient-to-r from-transparent via-[#E64A19] to-transparent mt-4 opacity-50"></div>
@@ -547,18 +547,46 @@ export default function Home() {
         </section>
 
         {/* Footer Minimalista com Hormozi Final Push */}
-        <footer className="bg-[#3E2723] text-[#FFF8E1] py-16 text-center border-t-4 border-[#FBC02D]">
-          <div className="container mx-auto px-6 max-w-4xl space-y-8">
-            <h2 className="font-serif text-3xl font-bold">Sua festa não pode esperar.</h2>
-            <p className="text-[#FBC02D] font-bold">Nossa produção é estritamente limitada para os finais de semana.</p>
+        <footer className="bg-[#3E2723] text-[#FFF8E1] pt-16 pb-12 text-center border-t-4 border-[#FBC02D]">
+          <div className="container mx-auto px-6 max-w-4xl flex flex-col items-center">
+            <h2 className="font-serif text-3xl font-bold mb-2">Sua festa não pode esperar.</h2>
+            <p className="text-[#FBC02D] font-bold mb-8">Nossa produção é estritamente limitada para os finais de semana.</p>
             <button 
               onClick={() => setShowCatalog(true)}
-              className="inline-flex bg-[#25D366] text-white font-black py-4 px-10 rounded-xl items-center gap-3 shadow-[0_10px_30px_rgba(37,211,102,0.2)] hover:bg-[#20bd5a] hover:-translate-y-1 transition-all text-xl mt-4"
+              className="inline-flex bg-[#25D366] text-white font-black py-4 px-10 rounded-xl items-center gap-3 shadow-[0_10px_30px_rgba(37,211,102,0.2)] hover:bg-[#20bd5a] hover:-translate-y-1 transition-all text-xl mb-16"
             >
               <ShoppingBag className="w-6 h-6" />
               ABRIR CATÁLOGO AGORA
             </button>
-            <div className="pt-12 text-[#FFF8E1]/50 text-xs md:text-sm">
+
+            <div className="w-full h-[1px] bg-white/10 mb-12"></div>
+
+            <div className="flex flex-col md:flex-row items-center justify-between w-full gap-12 md:gap-8 mb-12">
+              <div className="flex flex-col items-center md:items-start gap-4">
+                <span className="text-[#FFF8E1]/80 text-sm font-bold tracking-widest uppercase">Acompanhe Nossas Fornadas</span>
+                <div className="flex gap-4">
+                  <a href="https://www.instagram.com/panipaesedelicias/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg">
+                    <Instagram className="w-7 h-7" />
+                  </a>
+                  <a href="https://www.facebook.com/panipaesedelicias/?locale=pt_BR" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-[#1877F2] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg">
+                    <Facebook className="w-7 h-7" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex-shrink-0">
+                <div className="relative w-48 h-48 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+                  <Image 
+                    src="/images/logo.png" 
+                    alt="Panificadora Pães & Delícias" 
+                    fill 
+                    className="object-contain" 
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="text-[#FFF8E1]/50 text-xs md:text-sm">
               &copy; {new Date().getFullYear()} Panificadora Pães &amp; Delícias - Arenápolis/MT. <br/>
               Todos os direitos reservados.
             </div>
