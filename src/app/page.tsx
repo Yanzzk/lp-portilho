@@ -28,6 +28,23 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Lema Animado (Marquee) */}
+      <div className="bg-[#E64A19] text-[#FFF8E1] py-2.5 overflow-hidden flex whitespace-nowrap border-b-4 border-[#3E2723] shadow-inner">
+        <div className="animate-marquee flex gap-8 items-center text-sm md:text-base font-black uppercase tracking-widest w-[200%]">
+          <span>👉 Café da manhã, o melhor jeito para começar o seu dia!!!</span>
+          <span className="text-[#FBC02D]">★</span>
+          <span>👉 Café da manhã, o melhor jeito para começar o seu dia!!!</span>
+          <span className="text-[#FBC02D]">★</span>
+          <span>👉 Café da manhã, o melhor jeito para começar o seu dia!!!</span>
+          <span className="text-[#FBC02D]">★</span>
+          <span>👉 Café da manhã, o melhor jeito para começar o seu dia!!!</span>
+          <span className="text-[#FBC02D]">★</span>
+          <span>👉 Café da manhã, o melhor jeito para começar o seu dia!!!</span>
+          <span className="text-[#FBC02D]">★</span>
+          <span>👉 Café da manhã, o melhor jeito para começar o seu dia!!!</span>
+        </div>
+      </div>
+
       <main className="flex-1">
         {/* Hero Section (A Grande Promessa) */}
         <section className="container mx-auto px-6 py-16 md:py-24 max-w-7xl flex flex-col items-center text-center space-y-8">
