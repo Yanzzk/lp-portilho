@@ -14,7 +14,7 @@ export default function Home() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [showCatalog, setShowCatalog] = useState(false);
-  const whatsappNumber = "556599364197";
+  const whatsappNumber = "5565996635396";
 
   useEffect(() => {
     // Logica da Tela de Boas-Vindas
@@ -602,6 +602,9 @@ export default function Home() {
             </div>
 
             <div className="text-[#FFF8E1]/50 text-xs md:text-sm">
+              <div className="mb-4 text-[#FBC02D] font-bold tracking-widest uppercase">
+                Atendemos diariamente das 5h30 às 18h00
+              </div>
               &copy; {new Date().getFullYear()} Panificadora Pães &amp; Delícias - Arenápolis/MT. <br/>
               Todos os direitos reservados.
             </div>
