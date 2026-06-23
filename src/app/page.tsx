@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, ShoppingBag, CheckCircle2, Star, ShieldCheck, Clock, ArrowRight, X, MapPin, Car, Copy, ZoomIn } from "lucide-react";
+import { Menu, ShoppingBag, CheckCircle2, Star, ShieldCheck, Clock, ArrowRight, X, MapPin, Car, Copy, ZoomIn, Flame, Timer, Cake, Moon } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { InteractiveCatalog } from "@/components/InteractiveCatalog";
@@ -14,7 +14,31 @@ export default function Home() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [showCatalog, setShowCatalog] = useState(false);
+  const [fornadaState, setFornadaState] = useState<'morning' | 'afternoon' | 'lateAfternoon' | 'closed'>('morning');
   const whatsappNumber = "5565996635396";
+
+  useEffect(() => {
+    // Determine the current fornada state based on MT timezone (UTC-4)
+    const updateFornadaState = () => {
+      const now = new Date();
+      // Emulate MT time by getting UTC and subtracting 4 hours
+      const mtHour = (now.getUTCHours() - 4 + 24) % 24;
+      
+      if (mtHour >= 6 && mtHour < 11) {
+        setFornadaState('morning');
+      } else if (mtHour >= 11 && mtHour < 16) {
+        setFornadaState('afternoon');
+      } else if (mtHour >= 16 && mtHour < 18) {
+        setFornadaState('lateAfternoon');
+      } else {
+        setFornadaState('closed');
+      }
+    };
+    
+    updateFornadaState();
+    const timer = setInterval(updateFornadaState, 60000); // Check every minute
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     // Logica da Tela de Boas-Vindas
@@ -67,6 +91,31 @@ export default function Home() {
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
   };
+
+  const fornadaConfig = {
+    morning: {
+      icon: <Flame className="w-4 h-4 text-[#E64A19] animate-pulse" />,
+      text: "Fornada Quente: Pães frescos saindo agora!",
+      color: "bg-[#E64A19]",
+    },
+    afternoon: {
+      icon: <Timer className="w-4 h-4 text-[#FBC02D]" />,
+      text: "Salgados fritos na hora para o seu lanche.",
+      color: "bg-[#FBC02D]",
+    },
+    lateAfternoon: {
+      icon: <Cake className="w-4 h-4 text-[#E64A19]" />,
+      text: "Bolos caseiros fresquinhos disponíveis.",
+      color: "bg-[#E64A19]",
+    },
+    closed: {
+      icon: <Moon className="w-4 h-4 text-indigo-400" />,
+      text: "Vitrine fechada. Deixe sua reserva para amanhã.",
+      color: "bg-indigo-500",
+    }
+  };
+
+  const currentFornada = fornadaConfig[fornadaState];
 
   return (
     <div className="min-h-screen bg-[#FFF8E1] text-[#3E2723] flex flex-col font-sans relative overflow-x-hidden">
@@ -191,11 +240,13 @@ export default function Home() {
           {/* Hero Content */}
           <div className="relative z-10 w-full px-4 md:px-6 max-w-5xl mx-auto flex flex-col items-center text-center py-12 md:py-0">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full mb-6 shadow-lg">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E64A19] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E64A19]"></span>
+              <span className="relative flex h-3 w-3 items-center justify-center">
+                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentFornada.color}`}></span>
+                {currentFornada.icon}
               </span>
-              <span className="text-[10px] md:text-xs font-bold text-white tracking-[0.15em] uppercase">Pedidos Abertos para o Fim de Semana</span>
+              <span className="text-[10px] md:text-xs font-bold text-white tracking-[0.15em] uppercase ml-1">
+                {currentFornada.text}
+              </span>
             </div>
             
             <h1 className="font-serif text-4xl md:text-6xl lg:text-[5rem] leading-[1.1] font-black text-white drop-shadow-xl max-w-4xl mx-auto">
