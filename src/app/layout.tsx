@@ -62,7 +62,7 @@ const jsonLd = {
   "description": "A melhor padaria de Arenápolis, oferecendo bolos premium, salgados fritos na hora e pães de fermentação natural. Encomendas VIP pelo WhatsApp.",
   "@id": "https://paesedeliciasmt.com.br",
   "url": "https://paesedeliciasmt.com.br",
-  "telephone": "+556599364197",
+  "telephone": "+5565996635396",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Av. Papa Paulo VI, 108 - Centro",
@@ -79,15 +79,9 @@ const jsonLd = {
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
       "opens": "06:00",
-      "closes": "20:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Sunday",
-      "opens": "06:00",
-      "closes": "12:00"
+      "closes": "18:00"
     }
   ],
   "sameAs": [

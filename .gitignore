@@ -42,3 +42,5 @@ next-env.d.ts
 
 # raw images for optimization
 /raw_images/
+
+.vercel
