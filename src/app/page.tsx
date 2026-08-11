@@ -2,7 +2,7 @@
 
 import { Menu, ShoppingBag, CheckCircle2, Star, ShieldCheck, Clock, ArrowRight, X, MapPin, Car, Copy, ZoomIn, Flame, Timer, Cake, Moon } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { InteractiveCatalog } from "@/components/InteractiveCatalog";
 
 export default function Home() {
