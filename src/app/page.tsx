@@ -138,7 +138,7 @@ export default function Home() {
         >
           <div className="flex flex-col items-center gap-6 animate-in fade-in zoom-in-95 duration-1000 group">
              <div className="relative w-40 h-40 drop-shadow-[0_0_40px_rgba(251,192,45,0.3)] transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-3">
-                <Image src="/images/logo.webp" alt="Panificadora Pães & Delícias" fill className="object-contain" priority />
+                <Image src="/images/logo.png" alt="Panificadora Pães & Delícias" fill className="object-contain" priority />
              </div>
              <h1 className="font-serif text-3xl md:text-5xl font-black tracking-widest uppercase text-center max-w-lg leading-tight px-4 mt-2">
                A Tradição de <br/><span className="text-[#FBC02D]">Arenápolis</span>
@@ -262,7 +262,7 @@ export default function Home() {
         <section className="relative w-full min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-[#2D1B18] pt-12 md:pt-16">
           {/* Video Background */}
           <div className="absolute inset-0 z-0 bg-[#2D1B18]">
-            <Image src="/images/fachada.webp" alt="Fachada" fill className="object-cover opacity-40" priority />
+            <Image src="/images/fachada.png" alt="Fachada" fill className="object-cover opacity-40" priority />
           </div>
           <video 
             ref={videoRef}
@@ -552,7 +552,7 @@ export default function Home() {
                   className="relative w-full h-[240px] md:h-[300px] rounded-[32px] md:rounded-[40px] border border-[#E64A19]/20 overflow-hidden shadow-sm order-1 group/photo cursor-pointer"
                   onClick={() => setShowFachadaModal(true)}
                 >
-                  <Image alt="Fachada Pães e Delícias" fill className="object-cover object-center transform transition-transform duration-[4s] ease-out group-hover/photo:scale-105" src="/images/fachada.webp" />
+                  <Image alt="Fachada Pães e Delícias" fill className="object-cover object-center transform transition-transform duration-[4s] ease-out group-hover/photo:scale-105" src="/images/fachada.png" />
                   <div className="absolute top-5 left-5 bg-white/95 px-5 py-2.5 rounded-full shadow-md text-[10px] md:text-xs font-bold tracking-[0.2em] text-[#3E2723] uppercase z-10 flex items-center gap-2 pointer-events-none">Nossa Fachada</div>
                   <div className="absolute inset-0 bg-black/0 group-hover/photo:bg-black/30 transition-colors flex items-center justify-center opacity-0 group-hover/photo:opacity-100">
                     <div className="bg-white/95 text-[#3E2723] px-5 py-2.5 rounded-full font-bold text-sm tracking-widest uppercase shadow-xl transform translate-y-4 group-hover/photo:translate-y-0 transition-transform">Ampliar Foto</div>
@@ -699,7 +699,7 @@ export default function Home() {
               <div className="flex-shrink-0 group cursor-pointer" onClick={() => window.scrollTo({top:0, behavior:'smooth'})}>
                 <div className="relative w-48 h-48 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-3">
                   <Image 
-                    src="/images/logo.webp" 
+                    src="/images/logo.png" 
                     alt="Panificadora Pães & Delícias" 
                     fill 
                     className="object-contain" 
@@ -728,7 +728,7 @@ export default function Home() {
               <button 
                 onClick={() => {
                   setShowFachadaModal(false);
-                  setZoomImageSrc("/images/fachada.webp");
+                  setZoomImageSrc("/images/fachada.png");
                 }}
                 className="w-full bg-[#E64A19] text-white font-bold py-4 rounded-xl hover:bg-[#d84013] transition-colors uppercase tracking-widest text-sm shadow-lg"
               >
