@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Panificadora Pães & Delícias",
     images: [
       {
-        url: "https://paesedeliciasmt.com.br/images/mockup-produto-008.webp",
+        url: "https://paesedeliciasmt.com.br/images/fachada.webp",
         width: 1200,
         height: 630,
         alt: "Catálogo digital Panificadora Pães & Delícias — Arenápolis MT",
