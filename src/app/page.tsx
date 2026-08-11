@@ -241,9 +241,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative w-full min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-[#2D1B18] pt-12 md:pt-16">
           {/* Video Background */}
-          <div className="absolute inset-0 z-0 bg-[#2D1B18]">
-            <Image src="/images/fachada.webp" alt="Fachada" fill className="object-cover opacity-40" priority />
-          </div>
+
           <video 
             ref={videoRef}
             autoPlay 
