@@ -211,9 +211,11 @@ export function InteractiveCatalog({ isOpen, onClose, whatsappNumber }: Interact
                       <button
                         onClick={() => handleConsultarValor(product.name)}
                         aria-label={`Consultar valor de ${product.name}`}
-                        className="w-full bg-white/10 hover:bg-white/20 text-[#FFF8E1] py-2.5 rounded-xl font-bold text-xs tracking-wide transition-colors flex items-center justify-center gap-2"
+                        className="w-full bg-white/10 hover:bg-white/20 text-[#FFF8E1] py-2.5 px-1 rounded-xl font-bold text-[10px] sm:text-xs tracking-wide transition-colors flex items-center justify-center gap-1.5 sm:gap-2 overflow-hidden"
                       >
-                        <Search className="w-4 h-4" /> CONSULTAR VALOR
+                        <Search className="w-3.5 h-3.5 shrink-0" /> 
+                        <span className="truncate">CONSULTAR</span>
+                        <span className="hidden sm:inline truncate"> VALOR</span>
                       </button>
                     ) : quantity === 0 ? (
                       /* Produto com preço + qty 0 → botão ADICIONAR */

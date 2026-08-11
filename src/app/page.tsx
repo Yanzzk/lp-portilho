@@ -14,6 +14,7 @@ export default function Home() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [showCatalog, setShowCatalog] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const [fornadaState, setFornadaState] = useState<'morning' | 'afternoon' | 'lateAfternoon' | 'closed'>('morning');
   const whatsappNumber = "5565996635396";
 
@@ -227,35 +228,48 @@ export default function Home() {
 
       <main className="flex-1 w-full overflow-hidden relative">
 
+        {/* Apple-Style Dynamic Pill (Status Vitrine) */}
+        <div className="fixed top-24 md:top-28 left-1/2 -translate-x-1/2 z-[100] animate-in slide-in-from-top-10 fade-in duration-1000">
+          <button 
+            onClick={() => setShowCatalog(true)}
+            className="group flex items-center gap-2 md:gap-3 bg-black/40 hover:bg-black/60 backdrop-blur-xl border border-white/10 px-4 md:px-5 py-2 md:py-2.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all hover:scale-105 active:scale-95 cursor-pointer overflow-hidden"
+          >
+            <div className={`absolute inset-0 opacity-20 blur-xl transition-opacity group-hover:opacity-40 ${currentFornada.color}`}></div>
+            <span className="relative flex h-2.5 w-2.5 md:h-3 md:w-3 items-center justify-center">
+              <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentFornada.color}`}></span>
+              {currentFornada.icon}
+            </span>
+            <span className="relative text-[10px] md:text-xs font-bold text-white tracking-[0.15em] uppercase whitespace-nowrap">
+              {currentFornada.text}
+            </span>
+            <span className="relative hidden sm:inline-flex opacity-0 -ml-2 sm:-ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-[9px] md:text-[10px] font-bold text-[#FBC02D] uppercase tracking-widest items-center">
+              → Ver Cardápio
+            </span>
+          </button>
+        </div>
+
         {/* Hero Section */}
         <section className="relative w-full min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-[#2D1B18]">
-          {/* Video Background - preload=none evita download de 2.3MB antes da interação */}
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            preload="none"
-            poster="/images/fachada.webp"
-            aria-hidden="true"
-            className="object-cover w-full h-full absolute inset-0 z-0 opacity-40"
-          >
-            <source src="/videos/hero-bg.mp4" type="video/mp4" />
-          </video>
+          {/* Video Background com Lazy Load */}
+          <div className="absolute inset-0 z-0 bg-[#2D1B18]">
+            <Image src="/images/fachada.webp" alt="Fachada" fill className="object-cover opacity-40" priority />
+          </div>
+          {videoLoaded && (
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="object-cover w-full h-full absolute inset-0 z-10 opacity-40 animate-in fade-in duration-1000"
+            >
+              <source src="/videos/hero-bg.mp4" type="video/mp4" />
+            </video>
+          )}
           
           <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723] via-transparent to-[#2D1B18]/50 z-0"></div>
 
           {/* Hero Content */}
-          <div className="relative z-10 w-full px-4 md:px-6 max-w-5xl mx-auto flex flex-col items-center text-center pt-24 pb-12 md:pt-16 md:pb-0 mt-8 md:mt-0">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full mb-6 shadow-lg">
-              <span className="relative flex h-3 w-3 items-center justify-center">
-                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentFornada.color}`}></span>
-                {currentFornada.icon}
-              </span>
-              <span className="text-[10px] md:text-xs font-bold text-white tracking-[0.15em] uppercase ml-1">
-                {currentFornada.text}
-              </span>
-            </div>
+          <div className="relative z-20 w-full px-4 md:px-6 max-w-5xl mx-auto flex flex-col items-center text-center pt-24 pb-12 md:pt-16 md:pb-0 mt-8 md:mt-0">
             
             <h1 className="font-serif text-4xl md:text-6xl lg:text-[5rem] leading-[1.1] font-black text-white drop-shadow-xl max-w-4xl mx-auto">
               A tradição que Arenápolis ama, <br className="hidden md:block"/><span className="text-[#FBC02D] italic font-light">agora a um clique da sua mesa.</span>
@@ -651,7 +665,7 @@ export default function Home() {
               <div className="flex-shrink-0">
                 <div className="relative w-48 h-48 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
                   <Image 
-                    src="/images/logo.png" 
+                    src="/images/logo.webp" 
                     alt="Panificadora Pães & Delícias" 
                     fill 
                     className="object-contain" 
