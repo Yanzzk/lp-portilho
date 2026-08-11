@@ -285,7 +285,7 @@ export default function Home() {
                 ACESSAR CATÁLOGO DIGITAL
               </button>
               {/* Google Review Badge (Apple Pro Max Style) */}
-              <div className="mt-8 relative group flex items-center gap-3 bg-black/60 backdrop-blur-2xl border border-white/20 pl-2 pr-4 py-2 rounded-full shadow-2xl hover:scale-105 hover:bg-black/80 transition-all duration-300 overflow-hidden cursor-default w-fit mx-auto md:mx-0">
+              <div className="mt-8 relative group flex items-center gap-3 bg-black/40 backdrop-blur-md border border-white/10 pl-3 pr-5 py-2.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:bg-white/10 hover:border-white/20 hover:scale-105 transition-all duration-300 overflow-hidden cursor-default w-fit mx-auto md:mx-0">
                 
                 {/* Shine effect */}
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" style={{ animation: "shimmer 3s infinite ease-in-out" }}>
@@ -302,15 +302,16 @@ export default function Home() {
                   </svg>
                 </div>
 
-                <div className="relative flex items-center gap-2">
-                  <span className="text-white font-bold text-sm tracking-tight drop-shadow-md">5.0</span>
-                  <div className="flex gap-0.5 group-hover:scale-105 transition-transform duration-300">
-                    {[1, 2, 3, 4, 5].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-[#FBC02D] text-[#FBC02D] drop-shadow-[0_0_3px_rgba(251,192,45,0.8)]" />
-                    ))}
+                <div className="relative flex flex-col items-start gap-0.5">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-white font-black text-[13px] leading-none drop-shadow-md">5.0</span>
+                    <div className="flex gap-0.5 group-hover:scale-105 transition-transform duration-300">
+                      {[1, 2, 3, 4, 5].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 text-[#FBC02D] animate-in zoom-in fade-in duration-500 fill-mode-both" style={{ fill: '#FBC02D', animationDelay: `${300 + (i * 100)}ms` }} />
+                      ))}
+                    </div>
                   </div>
-                  <span className="text-white/30 text-sm mx-0.5">|</span>
-                  <span className="text-white font-medium text-[11px] md:text-xs tracking-wide">
+                  <span className="text-white opacity-90 text-[10px] md:text-[11px] font-semibold tracking-wider">
                     +16 anos no bairro Vila Nova
                   </span>
                 </div>
