@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Panificadora Pães & Delícias",
     images: [
       {
-        url: "https://paesedeliciasmt.com.br/images/fachada.png",
+        url: "https://paesedeliciasmt.com.br/images/fachada.webp",
         width: 1200,
         height: 630,
         alt: "Catálogo digital Panificadora Pães & Delícias — Arenápolis MT",
@@ -58,7 +58,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Bakery",
   "name": "Panificadora Pães & Delícias",
-  "image": "https://paesedeliciasmt.com.br/images/fachada.png",
+  "image": "https://paesedeliciasmt.com.br/images/fachada.webp",
   "description": "A melhor padaria de Arenápolis, oferecendo bolos premium, salgados fritos na hora e pães de fermentação natural. Encomendas VIP pelo WhatsApp.",
   "@id": "https://paesedeliciasmt.com.br",
   "url": "https://paesedeliciasmt.com.br",

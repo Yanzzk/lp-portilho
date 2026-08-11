@@ -137,8 +137,8 @@ export default function Home() {
           className={`fixed inset-0 z-[200] bg-[#111] text-[#FFF8E1] flex flex-col items-center justify-center transition-opacity duration-1000 touch-none ${isFadingOut ? 'opacity-0' : 'opacity-100'}`}
         >
           <div className="flex flex-col items-center gap-6 animate-in fade-in zoom-in-95 duration-1000 group">
-             <div className="relative w-40 h-40 drop-shadow-[0_0_40px_rgba(251,192,45,0.3)] transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-3">
-                <Image src="/images/logo.png" alt="Panificadora Pães & Delícias" fill className="object-contain" priority />
+             <div className="relative w-40 h-40 drop-shadow-[0_0_40px_rgba(251,192,45,0.3)] transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110 group-hover:rotate-3">
+                <Image src="/images/logo.webp" alt="Panificadora Pães & Delícias" fill className="object-contain" priority />
              </div>
              <h1 className="font-serif text-3xl md:text-5xl font-black tracking-widest uppercase text-center max-w-lg leading-tight px-4 mt-2">
                A Tradição de <br/><span className="text-[#FBC02D]">Arenápolis</span>
@@ -238,31 +238,11 @@ export default function Home() {
 
       <main className="flex-1 w-full overflow-hidden relative">
 
-        {/* Apple-Style Dynamic Pill (Status Vitrine) */}
-        <div className="fixed top-24 md:top-28 left-1/2 -translate-x-1/2 z-[100] animate-in slide-in-from-top-10 fade-in duration-1000">
-          <button 
-            onClick={() => setShowCatalog(true)}
-            className="group flex items-center gap-2 md:gap-3 bg-black/40 hover:bg-black/60 backdrop-blur-xl border border-white/10 px-4 md:px-5 py-2 md:py-2.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all hover:scale-105 active:scale-95 cursor-pointer overflow-hidden"
-          >
-            <div className={`absolute inset-0 opacity-20 blur-xl transition-opacity group-hover:opacity-40 ${currentFornada.color}`}></div>
-            <span className="relative flex h-2.5 w-2.5 md:h-3 md:w-3 items-center justify-center">
-              <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentFornada.color}`}></span>
-              {currentFornada.icon}
-            </span>
-            <span className="relative text-[10px] md:text-xs font-bold text-white tracking-[0.15em] uppercase whitespace-nowrap">
-              {currentFornada.text}
-            </span>
-            <span className="relative hidden sm:inline-flex opacity-0 -ml-2 sm:-ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-[9px] md:text-[10px] font-bold text-[#FBC02D] uppercase tracking-widest items-center">
-              → Ver Cardápio
-            </span>
-          </button>
-        </div>
-
         {/* Hero Section */}
         <section className="relative w-full min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-[#2D1B18] pt-12 md:pt-16">
           {/* Video Background */}
           <div className="absolute inset-0 z-0 bg-[#2D1B18]">
-            <Image src="/images/fachada.png" alt="Fachada" fill className="object-cover opacity-40" priority />
+            <Image src="/images/fachada.webp" alt="Fachada" fill className="object-cover opacity-40" priority />
           </div>
           <video 
             ref={videoRef}
@@ -275,40 +255,22 @@ export default function Home() {
             <source src="/videos/hero-bg.mp4" type="video/mp4" />
           </video>
 
-          {/* Apple-Style Dynamic Pill (Status Vitrine) */}
-          <div className="absolute top-6 md:top-10 left-1/2 -translate-x-1/2 z-[100] animate-in slide-in-from-top-10 fade-in duration-1000 w-[90%] sm:w-auto flex justify-center">
-            <button 
-              onClick={() => setShowCatalog(true)}
-              className="group flex items-center gap-2 md:gap-3 bg-black/40 hover:bg-black/60 backdrop-blur-xl border border-white/10 px-4 md:px-5 py-2 md:py-2.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all hover:scale-105 active:scale-95 cursor-pointer overflow-hidden max-w-full"
-            >
-              <div className="absolute inset-0 opacity-20 blur-xl transition-opacity group-hover:opacity-40 bg-[#FBC02D]"></div>
-              
-              {/* Pulsing indicator */}
-              <span className="relative flex h-2.5 w-2.5 md:h-3 md:w-3 items-center justify-center shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-[#FBC02D]"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 md:h-2.5 md:w-2.5 bg-[#FBC02D]"></span>
-              </span>
-
-              {/* Status text */}
-              <span className="relative text-[9px] sm:text-[10px] md:text-xs font-bold text-white tracking-[0.15em] uppercase whitespace-nowrap truncate">
-                {fornadaState === 'morning' && 'Fornada Quente Agora!'}
-                {fornadaState === 'afternoon' && 'Vitrine Abastecida!'}
-                {fornadaState === 'lateAfternoon' && 'Pães Fresquinhos!'}
-                {fornadaState === 'closed' && 'Deixe sua reserva para amanhã'}
-              </span>
-
-              {/* Hover reveal text */}
-              <span className="relative hidden sm:inline-flex opacity-0 -ml-2 sm:-ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-[9px] md:text-[10px] font-bold text-[#FBC02D] uppercase tracking-widest items-center shrink-0">
-                → Ver Cardápio
-              </span>
-            </button>
-          </div>
-          
           <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723] via-transparent to-[#2D1B18]/50 z-0"></div>
 
           {/* Hero Content */}
           <div className="relative z-20 w-full px-4 md:px-6 max-w-5xl mx-auto flex flex-col items-center text-center pt-24 pb-12 md:pt-16 md:pb-0 mt-8 md:mt-0">
             
+            {/* Status Pill (Original Design Premium) */}
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full mb-6 shadow-lg animate-in fade-in duration-1000 slide-in-from-bottom-4">
+              <span className="relative flex h-3 w-3 items-center justify-center">
+                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentFornada.color}`}></span>
+                {currentFornada.icon}
+              </span>
+              <span className="text-[10px] md:text-xs font-bold text-white tracking-[0.15em] uppercase ml-1">
+                {currentFornada.text}
+              </span>
+            </div>
+
             <h1 className="font-serif text-4xl md:text-6xl lg:text-[5rem] leading-[1.1] font-black text-white drop-shadow-xl max-w-4xl mx-auto">
               A tradição que Arenápolis ama, <br className="hidden md:block"/><span className="text-[#FBC02D] italic font-light">agora a um clique da sua mesa.</span>
             </h1>
@@ -552,7 +514,7 @@ export default function Home() {
                   className="relative w-full h-[240px] md:h-[300px] rounded-[32px] md:rounded-[40px] border border-[#E64A19]/20 overflow-hidden shadow-sm order-1 group/photo cursor-pointer"
                   onClick={() => setShowFachadaModal(true)}
                 >
-                  <Image alt="Fachada Pães e Delícias" fill className="object-cover object-center transform transition-transform duration-[4s] ease-out group-hover/photo:scale-105" src="/images/fachada.png" />
+                  <Image alt="Fachada Pães e Delícias" fill className="object-cover object-center transform transition-transform duration-[4s] ease-out group-hover/photo:scale-105" src="/images/fachada.webp" />
                   <div className="absolute top-5 left-5 bg-white/95 px-5 py-2.5 rounded-full shadow-md text-[10px] md:text-xs font-bold tracking-[0.2em] text-[#3E2723] uppercase z-10 flex items-center gap-2 pointer-events-none">Nossa Fachada</div>
                   <div className="absolute inset-0 bg-black/0 group-hover/photo:bg-black/30 transition-colors flex items-center justify-center opacity-0 group-hover/photo:opacity-100">
                     <div className="bg-white/95 text-[#3E2723] px-5 py-2.5 rounded-full font-bold text-sm tracking-widest uppercase shadow-xl transform translate-y-4 group-hover/photo:translate-y-0 transition-transform">Ampliar Foto</div>
@@ -697,9 +659,9 @@ export default function Home() {
               </div>
 
               <div className="flex-shrink-0 group cursor-pointer" onClick={() => window.scrollTo({top:0, behavior:'smooth'})}>
-                <div className="relative w-48 h-48 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-3">
+                <div className="relative w-48 h-48 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110 group-hover:rotate-3">
                   <Image 
-                    src="/images/logo.png" 
+                    src="/images/logo.webp" 
                     alt="Panificadora Pães & Delícias" 
                     fill 
                     className="object-contain" 
@@ -728,7 +690,7 @@ export default function Home() {
               <button 
                 onClick={() => {
                   setShowFachadaModal(false);
-                  setZoomImageSrc("/images/fachada.png");
+                  setZoomImageSrc("/images/fachada.webp");
                 }}
                 className="w-full bg-[#E64A19] text-white font-bold py-4 rounded-xl hover:bg-[#d84013] transition-colors uppercase tracking-widest text-sm shadow-lg"
               >
