@@ -127,7 +127,7 @@ export default function Home() {
         >
           <div className="flex flex-col items-center gap-6 animate-in fade-in zoom-in-95 duration-1000">
              <div className="relative w-40 h-40 drop-shadow-[0_0_40px_rgba(251,192,45,0.3)]">
-                <Image src="/images/logo.png" alt="Panificadora Pães & Delícias" fill className="object-contain" priority />
+                <Image src="/images/logo.webp" alt="Panificadora Pães & Delícias" fill className="object-contain" priority />
              </div>
              <h1 className="font-serif text-3xl md:text-5xl font-black tracking-widest uppercase text-center max-w-lg leading-tight px-4 mt-2">
                A Tradição de <br/><span className="text-[#FBC02D]">Arenápolis</span>
@@ -246,7 +246,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723] via-transparent to-[#2D1B18]/50 z-0"></div>
 
           {/* Hero Content */}
-          <div className="relative z-10 w-full px-4 md:px-6 max-w-5xl mx-auto flex flex-col items-center text-center py-12 md:py-0">
+          <div className="relative z-10 w-full px-4 md:px-6 max-w-5xl mx-auto flex flex-col items-center text-center pt-24 pb-12 md:pt-16 md:pb-0 mt-8 md:mt-0">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full mb-6 shadow-lg">
               <span className="relative flex h-3 w-3 items-center justify-center">
                 <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentFornada.color}`}></span>
