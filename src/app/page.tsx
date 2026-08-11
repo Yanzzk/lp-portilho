@@ -137,7 +137,7 @@ export default function Home() {
           className={`fixed inset-0 z-[200] bg-[#111] text-[#FFF8E1] flex flex-col items-center justify-center transition-opacity duration-1000 touch-none ${isFadingOut ? 'opacity-0' : 'opacity-100'}`}
         >
           <div className="flex flex-col items-center gap-6 animate-in fade-in zoom-in-95 duration-1000 group">
-             <div className="relative w-40 h-40 drop-shadow-[0_0_40px_rgba(251,192,45,0.3)] transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110 group-hover:rotate-3">
+             <div className="relative w-40 h-40 drop-shadow-[0_0_40px_rgba(251,192,45,0.3)] transition-all duration-1000 ease-in-out group-hover:scale-110 group-hover:rotate-3">
                 <Image src="/images/logo.webp" alt="Panificadora Pães & Delícias" fill className="object-contain" priority />
              </div>
              <h1 className="font-serif text-3xl md:text-5xl font-black tracking-widest uppercase text-center max-w-lg leading-tight px-4 mt-2">
@@ -659,7 +659,7 @@ export default function Home() {
               </div>
 
               <div className="flex-shrink-0 group cursor-pointer" onClick={() => window.scrollTo({top:0, behavior:'smooth'})}>
-                <div className="relative w-48 h-48 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110 group-hover:rotate-3">
+                <div className="relative w-48 h-48 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-1000 ease-in-out group-hover:scale-110 group-hover:rotate-3">
                   <Image 
                     src="/images/logo.webp" 
                     alt="Panificadora Pães & Delícias" 
