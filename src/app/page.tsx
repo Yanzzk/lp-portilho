@@ -290,10 +290,10 @@ export default function Home() {
                 onClick={() => window.open('https://maps.app.goo.gl/Yzwi6vzKYLC4kZrs9', '_blank', 'noopener,noreferrer')}
                 onContextMenu={(e) => e.preventDefault()}
                 style={{ WebkitTouchCallout: 'none' }} 
-                className="mt-5 md:mt-6 flex items-center gap-3 opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer group select-none outline-none"
+                className="mt-5 md:mt-6 flex items-center gap-3 opacity-90 lg:hover:opacity-100 active:opacity-100 transition-all duration-300 cursor-pointer group select-none outline-none"
               >
-                <div className="w-7 h-7 rounded-full bg-white/5 backdrop-blur-sm flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] transition-all duration-500 shadow-sm pointer-events-none">
-                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 md:w-4 md:h-4 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
+                <div className="w-7 h-7 rounded-full bg-white/5 backdrop-blur-sm flex items-center justify-center border border-white/10 lg:group-hover:bg-white lg:group-hover:scale-110 lg:group-hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] group-active:bg-white group-active:scale-110 group-active:shadow-[0_0_15px_rgba(255,255,255,0.4)] transition-all duration-500 shadow-sm pointer-events-none">
+                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 md:w-4 md:h-4 grayscale opacity-60 lg:group-hover:grayscale-0 lg:group-hover:opacity-100 group-active:grayscale-0 group-active:opacity-100 transition-all duration-500">
                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                     <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
                     <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
@@ -301,10 +301,10 @@ export default function Home() {
                   </svg>
                 </div>
                 <div className="flex items-center gap-2 md:gap-2.5">
-                  <div className="flex gap-0.5 group-hover:scale-105 transition-transform duration-500">
+                  <div className="flex gap-0.5 lg:group-hover:scale-105 group-active:scale-105 transition-transform duration-500">
                     {[...Array(5)].map((_, i) => (
                       <div key={i} className="animate-in zoom-in fade-in duration-500 fill-mode-both" style={{ animationDelay: `${200 + (i * 100)}ms` }}>
-                        <Star className="w-3.5 h-3.5 md:w-4 md:h-4 fill-[#FBC02D] text-[#FBC02D] drop-shadow-[0_0_3px_rgba(251,192,45,0.5)] group-hover:drop-shadow-[0_0_8px_rgba(251,192,45,1)] transition-all duration-300 pointer-events-none" />
+                        <Star className="w-3.5 h-3.5 md:w-4 md:h-4 fill-[#FBC02D] text-[#FBC02D] drop-shadow-[0_0_3px_rgba(251,192,45,0.5)] lg:group-hover:drop-shadow-[0_0_8px_rgba(251,192,45,1)] group-active:drop-shadow-[0_0_8px_rgba(251,192,45,1)] transition-all duration-300 pointer-events-none" />
                       </div>
                     ))}
                   </div>
