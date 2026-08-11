@@ -282,7 +282,6 @@ export default function Home() {
             <div className="pt-8 w-full md:w-auto flex flex-col items-center gap-4">
               <button 
                 onClick={() => setShowCatalog(true)}
-                aria-label="Abrir catálogo digital de produtos"
                 className="bg-[#C63A0F] text-white font-black py-4 md:py-5 px-6 md:px-12 rounded-xl flex items-center justify-center gap-3 w-full sm:w-auto shadow-[0_15px_35px_rgba(198,58,15,0.4)] hover:bg-[#a83008] hover:-translate-y-1 transition-all duration-300 active:scale-[0.98] text-lg md:text-xl"
               >
                 <ShoppingBag className="w-6 h-6" />
@@ -322,8 +321,7 @@ export default function Home() {
                 <div className="pt-4 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
                   <button 
                     onClick={() => setShowCatalog(true)}
-                    aria-label="Abrir catálogo de produtos"
-                    className="w-full sm:w-auto bg-[#1a9e4a] text-white font-black py-5 px-8 rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.3)] hover:bg-[#157a3a] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg uppercase tracking-wide"
+                    className="w-full sm:w-auto bg-[#127533] text-white font-black py-5 px-8 rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.3)] hover:bg-[#0e5c28] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg uppercase tracking-wide"
                   >
                     ACESSAR CATÁLOGO <ArrowRight className="w-5 h-5" />
                   </button>
@@ -398,7 +396,6 @@ export default function Home() {
                        <h3 className="text-white font-serif font-bold text-xl md:text-2xl pointer-events-none" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>Item Fresco #{realIndex+1}</h3>
                        <button 
                          onClick={() => setShowCatalog(true)}
-                         aria-label="Consultar valor deste produto no catálogo"
                          className="w-full bg-[#C63A0F] text-white text-xs font-black tracking-widest uppercase px-5 py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 hover:bg-[#a83008] transition-colors relative z-30"
                        >
                          Consultar Valor <ArrowRight className="w-4 h-4" />
@@ -640,8 +637,7 @@ export default function Home() {
             <p className="text-[#FBC02D] font-bold mb-8">Nossa produção é estritamente limitada para os finais de semana.</p>
             <button 
               onClick={() => setShowCatalog(true)}
-              aria-label="Abrir catálogo de produtos agora"
-              className="inline-flex bg-[#1a9e4a] text-white font-black py-5 px-10 rounded-xl items-center gap-3 shadow-[0_10px_30px_rgba(26,158,74,0.3)] hover:bg-[#157a3a] hover:-translate-y-1 transition-all text-xl mb-16"
+              className="inline-flex bg-[#127533] text-white font-black py-5 px-10 rounded-xl items-center gap-3 shadow-[0_10px_30px_rgba(26,158,74,0.3)] hover:bg-[#0e5c28] hover:-translate-y-1 transition-all text-xl mb-16"
             >
               <ShoppingBag className="w-6 h-6" />
               ABRIR CATÁLOGO AGORA
