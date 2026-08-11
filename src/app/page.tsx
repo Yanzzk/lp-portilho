@@ -266,7 +266,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723] via-transparent to-[#2D1B18]/50 z-0"></div>
 
           {/* Hero Content */}
-          <div className="relative z-20 w-full px-4 md:px-6 max-w-5xl mx-auto flex flex-col items-center text-center pt-24 pb-12 md:pt-16 md:pb-0 mt-8 md:mt-0">
+          <div className="relative z-20 w-full px-4 md:px-6 max-w-5xl mx-auto flex flex-col items-center text-center pt-24 pb-24 md:pt-16 md:pb-32 mt-8 md:mt-0">
 
             <h1 className="font-serif text-4xl md:text-6xl lg:text-[5rem] leading-[1.1] font-black text-white drop-shadow-xl max-w-4xl mx-auto">
               A tradição que Arenápolis ama, <br className="hidden md:block"/><span className="text-[#FBC02D] italic font-light">agora a um clique da sua mesa.</span>
@@ -285,7 +285,7 @@ export default function Home() {
                 ACESSAR CATÁLOGO DIGITAL
               </button>
               {/* Google Review Badge (Apple Pro Max Style) */}
-              <a href="https://maps.app.goo.gl/Yzwi6vzKYLC4kZrs9" target="_blank" rel="noopener noreferrer" className="mt-8 relative group flex items-center gap-2 md:gap-3 bg-black/40 backdrop-blur-md border border-white/10 pl-2 pr-4 md:pl-3 md:pr-5 py-2 md:py-2.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:bg-white/10 hover:border-white/20 hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer w-fit max-w-[95vw] mx-auto md:mx-0">
+              <a href="https://maps.app.goo.gl/Yzwi6vzKYLC4kZrs9" target="_blank" rel="noopener noreferrer" className="mt-12 mb-8 md:mb-12 relative group flex items-center gap-2 md:gap-3 bg-black/40 backdrop-blur-md border border-white/10 pl-2 pr-4 md:pl-3 md:pr-5 py-2 md:py-2.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:bg-white/10 hover:border-white/20 hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer w-fit max-w-[95vw] mx-auto md:mx-0">
                 
                 {/* Shine effect */}
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" style={{ animation: "shimmer 3s infinite ease-in-out" }}>
