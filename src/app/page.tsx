@@ -14,7 +14,17 @@ export default function Home() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [showCatalog, setShowCatalog] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (showCatalog) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play().catch(e => console.log("Video play interrupted", e));
+      }
+    }
+  }, [showCatalog]);
   const [fornadaState, setFornadaState] = useState<'morning' | 'afternoon' | 'lateAfternoon' | 'closed'>('morning');
   const whatsappNumber = "5565996635396";
 
@@ -126,8 +136,8 @@ export default function Home() {
         <div 
           className={`fixed inset-0 z-[200] bg-[#111] text-[#FFF8E1] flex flex-col items-center justify-center transition-opacity duration-1000 touch-none ${isFadingOut ? 'opacity-0' : 'opacity-100'}`}
         >
-          <div className="flex flex-col items-center gap-6 animate-in fade-in zoom-in-95 duration-1000">
-             <div className="relative w-40 h-40 drop-shadow-[0_0_40px_rgba(251,192,45,0.3)]">
+          <div className="flex flex-col items-center gap-6 animate-in fade-in zoom-in-95 duration-1000 group">
+             <div className="relative w-40 h-40 drop-shadow-[0_0_40px_rgba(251,192,45,0.3)] transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-3">
                 <Image src="/images/logo.webp" alt="Panificadora Pães & Delícias" fill className="object-contain" priority />
              </div>
              <h1 className="font-serif text-3xl md:text-5xl font-black tracking-widest uppercase text-center max-w-lg leading-tight px-4 mt-2">
@@ -249,22 +259,50 @@ export default function Home() {
         </div>
 
         {/* Hero Section */}
-        <section className="relative w-full min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-[#2D1B18]">
-          {/* Video Background com Lazy Load */}
+        <section className="relative w-full min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-[#2D1B18] pt-12 md:pt-16">
+          {/* Video Background */}
           <div className="absolute inset-0 z-0 bg-[#2D1B18]">
             <Image src="/images/fachada.webp" alt="Fachada" fill className="object-cover opacity-40" priority />
           </div>
-          {videoLoaded && (
-            <video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              className="object-cover w-full h-full absolute inset-0 z-10 opacity-40 animate-in fade-in duration-1000"
+          <video 
+            ref={videoRef}
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="object-cover w-full h-full absolute inset-0 z-10 opacity-40 animate-in fade-in duration-1000"
+          >
+            <source src="/videos/hero-bg.mp4" type="video/mp4" />
+          </video>
+
+          {/* Apple-Style Dynamic Pill (Status Vitrine) */}
+          <div className="absolute top-6 md:top-10 left-1/2 -translate-x-1/2 z-[100] animate-in slide-in-from-top-10 fade-in duration-1000 w-[90%] sm:w-auto flex justify-center">
+            <button 
+              onClick={() => setShowCatalog(true)}
+              className="group flex items-center gap-2 md:gap-3 bg-black/40 hover:bg-black/60 backdrop-blur-xl border border-white/10 px-4 md:px-5 py-2 md:py-2.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all hover:scale-105 active:scale-95 cursor-pointer overflow-hidden max-w-full"
             >
-              <source src="/videos/hero-bg.mp4" type="video/mp4" />
-            </video>
-          )}
+              <div className="absolute inset-0 opacity-20 blur-xl transition-opacity group-hover:opacity-40 bg-[#FBC02D]"></div>
+              
+              {/* Pulsing indicator */}
+              <span className="relative flex h-2.5 w-2.5 md:h-3 md:w-3 items-center justify-center shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-[#FBC02D]"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 md:h-2.5 md:w-2.5 bg-[#FBC02D]"></span>
+              </span>
+
+              {/* Status text */}
+              <span className="relative text-[9px] sm:text-[10px] md:text-xs font-bold text-white tracking-[0.15em] uppercase whitespace-nowrap truncate">
+                {fornadaState === 'morning' && 'Fornada Quente Agora!'}
+                {fornadaState === 'afternoon' && 'Vitrine Abastecida!'}
+                {fornadaState === 'lateAfternoon' && 'Pães Fresquinhos!'}
+                {fornadaState === 'closed' && 'Deixe sua reserva para amanhã'}
+              </span>
+
+              {/* Hover reveal text */}
+              <span className="relative hidden sm:inline-flex opacity-0 -ml-2 sm:-ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-[9px] md:text-[10px] font-bold text-[#FBC02D] uppercase tracking-widest items-center shrink-0">
+                → Ver Cardápio
+              </span>
+            </button>
+          </div>
           
           <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723] via-transparent to-[#2D1B18]/50 z-0"></div>
 
@@ -658,8 +696,8 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex-shrink-0">
-                <div className="relative w-48 h-48 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+              <div className="flex-shrink-0 group cursor-pointer" onClick={() => window.scrollTo({top:0, behavior:'smooth'})}>
+                <div className="relative w-48 h-48 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-3">
                   <Image 
                     src="/images/logo.webp" 
                     alt="Panificadora Pães & Delícias" 
