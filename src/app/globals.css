@@ -26,6 +26,10 @@ body {
   animation: marquee 25s linear infinite;
 }
 
+.animate-marquee-slow {
+  animation: marquee 50s linear infinite;
+}
+
 /* Proteção contra download/salvamento de imagem em mobile/desktop */
 img {
   -webkit-user-drag: none;

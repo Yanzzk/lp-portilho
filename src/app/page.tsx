@@ -220,7 +220,7 @@ export default function Home() {
 
       {/* Lema Animado (Marquee) */}
       <div className="bg-[#C63A0F] text-white py-2 overflow-hidden flex whitespace-nowrap border-b-2 border-[#3E2723] shadow-inner relative z-20" aria-label="Faixa informativa da padaria">
-        <div className="animate-marquee flex gap-8 items-center text-[11px] md:text-xs font-black uppercase tracking-widest w-[200%]">
+        <div className="animate-marquee-slow flex gap-8 items-center text-[11px] md:text-xs font-black uppercase tracking-widest w-[200%]">
           <span>👉 Café da manhã, o melhor jeito para começar o seu dia!!!</span>
           <span className="text-[#FFD54F]">★</span>
           <span>A MELHOR PANIFICADORA DE ARENÁPOLIS-MT</span>
@@ -239,10 +239,10 @@ export default function Home() {
       <main className="flex-1 w-full overflow-hidden relative">
 
         {/* Hero Section */}
-        <section className="relative w-full min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-[#2D1B18] pt-12 md:pt-16">
+        <section className="relative w-full min-h-[85vh] flex flex-col items-center justify-center overflow-hidden bg-[#2D1B18] py-16 md:py-20">
           
           {/* Status Pill (Absolute Top Center) */}
-          <div className="absolute top-4 md:top-6 left-1/2 -translate-x-1/2 z-30 inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full shadow-lg animate-in fade-in duration-1000 slide-in-from-top-4 whitespace-nowrap">
+          <div className="absolute top-6 left-1/2 -translate-x-1/2 z-30 inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full shadow-lg animate-in fade-in duration-1000 slide-in-from-top-4 whitespace-nowrap">
             <span className="relative flex h-3 w-3 items-center justify-center shrink-0">
               <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentFornada.color}`}></span>
               {currentFornada.icon}
@@ -263,10 +263,10 @@ export default function Home() {
             <source src="/videos/hero-bg.mp4" type="video/mp4" />
           </video>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723] via-transparent to-[#2D1B18]/50 z-0"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723] via-transparent to-[#2D1B18]/50 z-0 pointer-events-none"></div>
 
           {/* Hero Content */}
-          <div className="relative z-20 w-full px-4 md:px-6 max-w-5xl mx-auto flex flex-col items-center text-center pt-24 pb-24 md:pt-16 md:pb-32 mt-8 md:mt-0">
+          <div className="relative z-20 w-full px-4 md:px-6 max-w-5xl mx-auto flex flex-col items-center text-center mt-12 md:mt-8">
 
             <h1 className="font-serif text-4xl md:text-6xl lg:text-[5rem] leading-[1.1] font-black text-white drop-shadow-xl max-w-4xl mx-auto">
               A tradição que Arenápolis ama, <br className="hidden md:block"/><span className="text-[#FBC02D] italic font-light">agora a um clique da sua mesa.</span>
@@ -284,38 +284,26 @@ export default function Home() {
                 <ShoppingBag className="w-6 h-6" />
                 ACESSAR CATÁLOGO DIGITAL
               </button>
-              {/* Google Review Badge (Apple Pro Max Style) */}
-              <a href="https://maps.app.goo.gl/Yzwi6vzKYLC4kZrs9" target="_blank" rel="noopener noreferrer" className="mt-12 mb-8 md:mb-12 relative group flex items-center gap-2 md:gap-3 bg-black/40 backdrop-blur-md border border-white/10 pl-2 pr-4 md:pl-3 md:pr-5 py-2 md:py-2.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:bg-white/10 hover:border-white/20 hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer w-fit max-w-[95vw] mx-auto md:mx-0">
-                
-                {/* Shine effect */}
-                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" style={{ animation: "shimmer 3s infinite ease-in-out" }}>
-                  <style>{`@keyframes shimmer { 0% { transform: translateX(-150%); } 100% { transform: translateX(250%); } }`}</style>
-                </div>
-
-                {/* Google Logo */}
-                <div className="relative flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full bg-white shadow-inner shrink-0 group-hover:rotate-12 transition-transform duration-500">
-                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 md:w-4 md:h-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              {/* Google Review Badge (Ultra Minimalist & Discreet) */}
+              <a href="https://maps.app.goo.gl/Yzwi6vzKYLC4kZrs9" target="_blank" rel="noopener noreferrer" draggable={false} style={{ WebkitTouchCallout: 'none' }} className="mt-5 md:mt-6 flex items-center gap-3 opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer group select-none">
+                <div className="w-7 h-7 rounded-full bg-white/5 backdrop-blur-sm flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:scale-110 transition-all duration-500 shadow-sm pointer-events-none">
+                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 md:w-4 md:h-4 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                     <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
                     <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
                     <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
                   </svg>
                 </div>
-
-                <div className="relative flex items-center gap-1.5 md:gap-2 shrink-0">
-                  <span className="text-white font-bold text-xs md:text-sm tracking-tight drop-shadow-md">5.0</span>
-                  <div className="flex gap-px md:gap-0.5 group-hover:scale-105 transition-transform duration-300">
-                    {[1, 2, 3, 4, 5].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#FBC02D] drop-shadow-[0_0_3px_rgba(251,192,45,0.8)] animate-in zoom-in fade-in duration-500 fill-mode-both" style={{ fill: '#FBC02D', animationDelay: `${300 + (i * 100)}ms` }} />
+                <div className="flex items-center gap-2 md:gap-2.5">
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 fill-[#FBC02D] text-[#FBC02D] drop-shadow-[0_0_6px_rgba(251,192,45,0.8)] pointer-events-none" />
                     ))}
                   </div>
+                  <span className="text-white/90 font-medium text-[11px] md:text-sm drop-shadow-md tracking-wide border-l border-white/20 pl-2 md:pl-2.5 pointer-events-none">
+                    <span className="font-bold text-white">5.0</span> no bairro Vila Nova
+                  </span>
                 </div>
-                
-                <div className="hidden min-[350px]:block text-white/30 text-xs md:text-sm mx-0 md:mx-0.5 shrink-0">|</div>
-                
-                <span className="text-white opacity-90 text-[9px] min-[350px]:text-[10px] md:text-[11px] font-semibold tracking-wide whitespace-nowrap truncate">
-                  +16 anos no bairro Vila Nova
-                </span>
               </a>
             </div>
           </div>
@@ -696,11 +684,12 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="text-[#FFF8E1]/80 text-xs md:text-sm">
-              <div className="mb-4 text-[#FBC02D] font-bold tracking-widest uppercase">
+            <div className="text-[#FFF8E1]/80 text-sm md:text-base mb-6 text-center leading-relaxed">
+              <div className="font-semibold text-[#FBC02D] mb-1">Panificadora Pães & Delícias</div>
+              <div className="text-xs mb-1">
                 Atendemos diariamente das 5h30 às 18h00
               </div>
-              &copy; {new Date().getFullYear()} Panificadora Pães &amp; Delícias - Arenápolis/MT. <br/>
+              &copy; 2024 Panificadora Pães &amp; Delícias - Arenápolis/MT. <br/>
               Todos os direitos reservados.
             </div>
           </div>
