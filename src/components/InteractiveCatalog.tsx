@@ -95,13 +95,13 @@ export function InteractiveCatalog({ isOpen, onClose, whatsappNumber }: Interact
 
           {/* Search Bar com botão clear animado */}
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#FFF8E1]/50 pointer-events-none" />
+            <Search className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 shrink-0 text-[#FFF8E1]/50 pointer-events-none" />
             <input
               type="text"
               placeholder="O que você deseja encomendar hoje?"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-12 text-[#FFF8E1] placeholder:text-[#FFF8E1]/50 focus:outline-none focus:ring-2 focus:ring-[#FBC02D]/50 transition-all font-medium"
+              className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-10 md:pl-12 pr-10 md:pr-12 text-sm md:text-base text-[#FFF8E1] placeholder:text-[11px] sm:placeholder:text-sm placeholder:text-[#FFF8E1]/50 placeholder:truncate focus:outline-none focus:ring-2 focus:ring-[#FBC02D]/50 transition-all font-medium"
             />
             {/* Botão Clear — surge com animação scale+rotate quando há texto */}
             <button
