@@ -285,7 +285,7 @@ export default function Home() {
                 ACESSAR CATÁLOGO DIGITAL
               </button>
               {/* Google Review Badge (Apple Pro Max Style) */}
-              <div className="mt-8 relative group flex items-center gap-3 bg-black/40 backdrop-blur-md border border-white/10 pl-3 pr-5 py-2.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:bg-white/10 hover:border-white/20 hover:scale-105 transition-all duration-300 overflow-hidden cursor-default w-fit mx-auto md:mx-0">
+              <a href="https://maps.app.goo.gl/Yzwi6vzKYLC4kZrs9" target="_blank" rel="noopener noreferrer" className="mt-8 relative group flex items-center gap-2 md:gap-3 bg-black/40 backdrop-blur-md border border-white/10 pl-2 pr-4 md:pl-3 md:pr-5 py-2 md:py-2.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:bg-white/10 hover:border-white/20 hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer w-fit max-w-[95vw] mx-auto md:mx-0">
                 
                 {/* Shine effect */}
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" style={{ animation: "shimmer 3s infinite ease-in-out" }}>
@@ -293,8 +293,8 @@ export default function Home() {
                 </div>
 
                 {/* Google Logo */}
-                <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-white shadow-inner shrink-0 group-hover:rotate-12 transition-transform duration-500">
-                  <svg viewBox="0 0 24 24" className="w-4 h-4">
+                <div className="relative flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full bg-white shadow-inner shrink-0 group-hover:rotate-12 transition-transform duration-500">
+                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 md:w-4 md:h-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                     <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
                     <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
@@ -302,20 +302,21 @@ export default function Home() {
                   </svg>
                 </div>
 
-                <div className="relative flex flex-col items-start gap-0.5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-white font-black text-[13px] leading-none drop-shadow-md">5.0</span>
-                    <div className="flex gap-0.5 group-hover:scale-105 transition-transform duration-300">
-                      {[1, 2, 3, 4, 5].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 text-[#FBC02D] animate-in zoom-in fade-in duration-500 fill-mode-both" style={{ fill: '#FBC02D', animationDelay: `${300 + (i * 100)}ms` }} />
-                      ))}
-                    </div>
+                <div className="relative flex items-center gap-1.5 md:gap-2 shrink-0">
+                  <span className="text-white font-bold text-xs md:text-sm tracking-tight drop-shadow-md">5.0</span>
+                  <div className="flex gap-px md:gap-0.5 group-hover:scale-105 transition-transform duration-300">
+                    {[1, 2, 3, 4, 5].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#FBC02D] drop-shadow-[0_0_3px_rgba(251,192,45,0.8)] animate-in zoom-in fade-in duration-500 fill-mode-both" style={{ fill: '#FBC02D', animationDelay: `${300 + (i * 100)}ms` }} />
+                    ))}
                   </div>
-                  <span className="text-white opacity-90 text-[10px] md:text-[11px] font-semibold tracking-wider">
-                    +16 anos no bairro Vila Nova
-                  </span>
                 </div>
-              </div>
+                
+                <div className="hidden min-[350px]:block text-white/30 text-xs md:text-sm mx-0 md:mx-0.5 shrink-0">|</div>
+                
+                <span className="text-white opacity-90 text-[9px] min-[350px]:text-[10px] md:text-[11px] font-semibold tracking-wide whitespace-nowrap truncate">
+                  +16 anos no bairro Vila Nova
+                </span>
+              </a>
             </div>
           </div>
         </section>
