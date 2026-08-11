@@ -158,7 +158,7 @@ export function InteractiveCatalog({ isOpen, onClose, whatsappNumber }: Interact
       </div>
 
       {/* Product Grid */}
-      <div className="flex-1 overflow-y-auto px-4 py-8 pb-32 custom-scrollbar">
+      <div className={`flex-1 px-4 py-8 pb-32 custom-scrollbar ${zoomedImage ? 'overflow-hidden' : 'overflow-y-auto'}`}>
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {filteredProducts.map((product) => {
             const quantity = cart[product.id] || 0;
@@ -306,7 +306,7 @@ export function InteractiveCatalog({ isOpen, onClose, whatsappNumber }: Interact
       {/* Zoom Modal */}
       {zoomedImage && (
         <div
-          className="fixed inset-0 z-[210] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 z-[210] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 animate-in fade-in duration-200 touch-none"
           onClick={() => setZoomedImage(null)}
         >
           <button
