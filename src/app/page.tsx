@@ -177,11 +177,16 @@ export default function Home() {
       <header className="sticky top-0 z-50 bg-[#FFF8E1]/95 backdrop-blur-md border-b-2 border-[#FBC02D]/30 shadow-sm">
         <div className="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center max-w-7xl">
           <div className="flex items-center gap-3">
-            <button onClick={() => setIsMenuOpen(true)}>
+            <button
+              onClick={() => setIsMenuOpen(true)}
+              aria-label="Abrir menu de navegação"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+            >
               <Menu className="w-6 h-6 text-[#3E2723] md:hidden cursor-pointer hover:text-[#E64A19] transition-colors" />
             </button>
             <div className="font-serif flex flex-col select-none">
-              <span className="tracking-[0.15em] uppercase text-[10px] md:text-xs font-bold text-[#E64A19] mb-0.5">Desde 2008</span>
+              <span className="tracking-[0.15em] uppercase text-[11px] md:text-xs font-bold text-[#C63A0F] mb-0.5">Desde 2008</span>
               <span className="text-lg md:text-2xl leading-none font-bold italic">Pães & Delícias</span>
             </div>
           </div>
@@ -203,20 +208,20 @@ export default function Home() {
       </header>
 
       {/* Lema Animado (Marquee) */}
-      <div className="bg-[#E64A19] text-[#FFF8E1] py-2 overflow-hidden flex whitespace-nowrap border-b-2 border-[#3E2723] shadow-inner relative z-20">
-        <div className="animate-marquee flex gap-8 items-center text-[10px] md:text-xs font-black uppercase tracking-widest w-[200%]">
+      <div className="bg-[#C63A0F] text-white py-2 overflow-hidden flex whitespace-nowrap border-b-2 border-[#3E2723] shadow-inner relative z-20" aria-label="Faixa informativa da padaria">
+        <div className="animate-marquee flex gap-8 items-center text-[11px] md:text-xs font-black uppercase tracking-widest w-[200%]">
           <span>👉 Café da manhã, o melhor jeito para começar o seu dia!!!</span>
-          <span className="text-[#FBC02D]">★</span>
+          <span className="text-[#FFD54F]">★</span>
           <span>A MELHOR PANIFICADORA DE ARENÁPOLIS-MT</span>
-          <span className="text-[#FBC02D]">★</span>
+          <span className="text-[#FFD54F]">★</span>
           <span>👉 Café da manhã, o melhor jeito para começar o seu dia!!!</span>
-          <span className="text-[#FBC02D]">★</span>
+          <span className="text-[#FFD54F]">★</span>
           <span>A MELHOR PANIFICADORA DE ARENÁPOLIS-MT</span>
-          <span className="text-[#FBC02D]">★</span>
+          <span className="text-[#FFD54F]">★</span>
           <span>👉 Café da manhã, o melhor jeito para começar o seu dia!!!</span>
-          <span className="text-[#FBC02D]">★</span>
+          <span className="text-[#FFD54F]">★</span>
           <span>A MELHOR PANIFICADORA DE ARENÁPOLIS-MT</span>
-          <span className="text-[#FBC02D]">★</span>
+          <span className="text-[#FFD54F]">★</span>
         </div>
       </div>
 
@@ -224,12 +229,15 @@ export default function Home() {
 
         {/* Hero Section */}
         <section className="relative w-full min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-[#2D1B18]">
-          {/* Video Background */}
+          {/* Video Background - preload=none evita download de 2.3MB antes da interação */}
           <video 
             autoPlay 
             loop 
             muted 
             playsInline 
+            preload="none"
+            poster="/images/fachada.webp"
+            aria-hidden="true"
             className="object-cover w-full h-full absolute inset-0 z-0 opacity-40"
           >
             <source src="/videos/hero-bg.mp4" type="video/mp4" />
@@ -260,7 +268,8 @@ export default function Home() {
             <div className="pt-8 w-full md:w-auto flex flex-col items-center gap-4">
               <button 
                 onClick={() => setShowCatalog(true)}
-                className="bg-[#E64A19] text-white font-black py-4 md:py-5 px-6 md:px-12 rounded-xl flex items-center justify-center gap-3 w-full sm:w-auto shadow-[0_15px_35px_rgba(230,74,25,0.4)] hover:bg-[#d84013] hover:-translate-y-1 transition-all duration-300 active:scale-[0.98] text-lg md:text-xl"
+                aria-label="Abrir catálogo digital de produtos"
+                className="bg-[#C63A0F] text-white font-black py-4 md:py-5 px-6 md:px-12 rounded-xl flex items-center justify-center gap-3 w-full sm:w-auto shadow-[0_15px_35px_rgba(198,58,15,0.4)] hover:bg-[#a83008] hover:-translate-y-1 transition-all duration-300 active:scale-[0.98] text-lg md:text-xl"
               >
                 <ShoppingBag className="w-6 h-6" />
                 ACESSAR CATÁLOGO DIGITAL
@@ -299,7 +308,8 @@ export default function Home() {
                 <div className="pt-4 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
                   <button 
                     onClick={() => setShowCatalog(true)}
-                    className="w-full sm:w-auto bg-[#25D366] text-white font-black py-4 px-8 rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.3)] hover:bg-[#20bd5a] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg uppercase tracking-wide"
+                    aria-label="Abrir catálogo de produtos"
+                    className="w-full sm:w-auto bg-[#1a9e4a] text-white font-black py-5 px-8 rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.3)] hover:bg-[#157a3a] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg uppercase tracking-wide"
                   >
                     ACESSAR CATÁLOGO <ArrowRight className="w-5 h-5" />
                   </button>
@@ -370,15 +380,12 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/90 via-[#3E2723]/20 to-transparent opacity-60 transition-opacity duration-300 pointer-events-none z-0"></div>
                     
                     {/* Zoom Hint */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#3E2723]/95 border border-[#FBC02D]/30 text-[#FFF8E1] text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase px-6 py-3 rounded-full opacity-0 md:group-hover/item:opacity-100 transition-all duration-300 pointer-events-none shadow-md flex items-center gap-2.5 transform-gpu translate-y-4 md:group-hover/item:translate-y-0 z-10">
-                      <ZoomIn className="w-4 h-4 text-[#FBC02D]" /> AMPLIAR
-                    </div>
-
-                    <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-3 transform-gpu transition-all duration-300 md:translate-y-4 md:group-hover/item:translate-y-0 z-20">
+                    <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-3 z-20">
                        <h3 className="text-white font-serif font-bold text-xl md:text-2xl pointer-events-none" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>Item Fresco #{realIndex+1}</h3>
                        <button 
                          onClick={() => setShowCatalog(true)}
-                         className="w-full bg-[#E64A19] text-white text-[10px] sm:text-xs font-black tracking-widest uppercase px-5 py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 hover:bg-[#d84013] transition-colors relative z-30"
+                         aria-label="Consultar valor deste produto no catálogo"
+                         className="w-full bg-[#C63A0F] text-white text-xs font-black tracking-widest uppercase px-5 py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 hover:bg-[#a83008] transition-colors relative z-30"
                        >
                          Consultar Valor <ArrowRight className="w-4 h-4" />
                        </button>
@@ -401,44 +408,39 @@ export default function Home() {
               <h2 className="font-serif text-3xl md:text-5xl font-bold text-[#FBC02D]">
                 Garantia do Frescor Absoluto
               </h2>
-              <p className="text-lg md:text-2xl leading-relaxed text-[#FFF8E1]/90 font-medium">
+              <p className="text-lg md:text-2xl leading-relaxed text-[#FFF8E1] font-medium">
                 Nós confiamos tanto na nossa receita de 16 anos que bancamos todo o risco: Se a sua encomenda não for <strong className="text-white">a mais fresca e saborosa</strong> que você já provou na cidade, nós devolveremos 100% do seu dinheiro. Simples assim.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Social Proof Component (Hormozi Pilar 2) */}
+        {/* Social Proof Component */}
         <section className="container mx-auto px-4 md:px-6 relative z-20 pt-16 md:pt-20 pb-8 md:pb-12 bg-white border-t border-[#3E2723]/5">
           <div className="max-w-[90%] md:max-w-5xl mx-auto bg-white border border-[#E64A19]/10 shadow-[0_20px_40px_-15px_rgba(230,74,25,0.1)] rounded-3xl py-8 md:py-10 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FBC02D] to-transparent opacity-50"></div>
-            
             <div className="hidden md:grid md:grid-cols-3 divide-x divide-[#3E2723]/10 items-center">
               <div className="flex flex-col items-center justify-center text-center px-8">
                 <span className="block text-5xl font-sans font-black text-[#3E2723] mb-3 tracking-[0.05em] tabular-nums">+16</span>
-                <div className="relative w-full flex justify-center">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#E64A19]">Anos de Tradição</span>
-                </div>
+                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#C63A0F]">Anos de Tradição</span>
               </div>
               
               <div className="flex flex-col items-center justify-center text-center px-8">
-                <div className="flex gap-2 mb-3 relative overflow-hidden p-1 text-[#FBC02D]">
-                  <Star className="w-6 h-6 fill-current z-10" />
-                  <Star className="w-6 h-6 fill-current z-10" />
-                  <Star className="w-6 h-6 fill-current z-10" />
-                  <Star className="w-6 h-6 fill-current z-10" />
-                  <Star className="w-6 h-6 fill-current z-10" />
-                  <div className="absolute top-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-white/60 to-transparent skew-x-12 z-20 pointer-events-none"></div>
+                <div className="flex gap-2 mb-3 text-[#FBC02D]">
+                  <Star className="w-6 h-6 fill-current" />
+                  <Star className="w-6 h-6 fill-current" />
+                  <Star className="w-6 h-6 fill-current" />
+                  <Star className="w-6 h-6 fill-current" />
+                  <Star className="w-6 h-6 fill-current" />
                 </div>
-                <span className="text-sm font-bold text-[#3E2723]/80 tracking-wide">Média 5.0 no Google</span>
+                <span className="text-sm font-bold text-[#3E2723] tracking-wide">Média 5.0 no Google</span>
               </div>
               
               <div className="flex flex-col items-center justify-center text-center px-8">
-                <div className="mb-3 p-3 bg-[#FFF8E1] rounded-full text-[#E64A19] shadow-inner">
+                <div className="mb-3 p-3 bg-[#FFF8E1] rounded-full text-[#C63A0F] shadow-inner">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <p className="text-base font-black text-[#3E2723]">Coração de Arenápolis, MT</p>
-                <span className="text-[10px] font-bold text-[#E64A19] mt-1 uppercase tracking-[0.15em]">Frescor Garantido</span>
+                <span className="text-[11px] font-bold text-[#C63A0F] mt-1 uppercase tracking-[0.15em]">Frescor Garantido</span>
               </div>
             </div>
 
@@ -447,7 +449,7 @@ export default function Home() {
               <div className="flex items-center justify-between border-b border-[#3E2723]/10 pb-5">
                 <div className="flex flex-col text-left">
                   <span className="text-4xl font-black text-[#3E2723] tracking-[0.05em] tabular-nums">+16</span>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#E64A19] mt-1">Anos de Tradição</span>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#C63A0F] mt-1">Anos de Tradição</span>
                 </div>
                 <div className="h-12 w-12 bg-[#FFF8E1] rounded-full flex items-center justify-center text-[#E64A19] shadow-inner">
                   <Star className="w-5 h-5 fill-current" />
@@ -460,7 +462,7 @@ export default function Home() {
                      <Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" />
                      <div className="absolute top-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-white/60 to-transparent skew-x-12 z-20 pointer-events-none"></div>
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#3E2723]/60">Google Reviews</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#3E2723]/85">Google Reviews</span>
                 </div>
                 <div className="text-right">
                   <span className="text-xl font-black text-[#3E2723]">5.0</span>
@@ -470,7 +472,7 @@ export default function Home() {
               <div className="flex items-center justify-between">
                 <div className="flex flex-col text-left">
                   <span className="text-sm font-black text-[#3E2723]">Arenápolis, MT</span>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#E64A19] mt-1">Frescor Garantido</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#C63A0F] mt-1">Frescor Garantido</span>
                 </div>
                 <div className="h-10 w-10 bg-[#FFF8E1] rounded-full flex items-center justify-center text-[#E64A19]">
                   <MapPin className="w-5 h-5" />
@@ -508,7 +510,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="bg-white rounded-[32px] md:rounded-[40px] p-8 md:p-10 lg:p-12 shadow-sm border border-gray-100/50 flex flex-col order-2">
-                  <span className="text-[#E64A19] text-xs md:text-sm font-bold tracking-[0.3em] uppercase block mb-4">Sua Padaria</span>
+                  <span className="text-[#C63A0F] text-xs md:text-sm font-bold tracking-[0.3em] uppercase block mb-4">Sua Padaria</span>
                   <h3 className="text-3xl md:text-4xl font-serif text-[#3E2723] mb-6 leading-tight font-black">Fácil de Encontrar</h3>
                   <div className="flex items-start gap-5 mb-10">
                     <div className="mt-1 flex-shrink-0 text-[#E64A19] bg-[#FFF8E1] p-3 rounded-full">
@@ -534,11 +536,11 @@ export default function Home() {
                       )}
                     </button>
                     <div className="grid grid-cols-2 gap-4">
-                      <a href="https://maps.app.goo.gl/7LcAWQDAaKbYDCm29" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden flex items-center justify-center gap-2 bg-[#E64A19] text-white rounded-full py-4 text-[10px] md:text-xs font-bold tracking-[0.1em] md:tracking-[0.15em] uppercase hover:bg-[#d84013] transition-colors group">
+                      <a href="https://maps.app.goo.gl/7LcAWQDAaKbYDCm29" target="_blank" rel="noopener noreferrer" aria-label="Abrir localização no Google Maps" className="relative overflow-hidden flex items-center justify-center gap-2 bg-[#C63A0F] text-white rounded-full py-4 text-xs font-bold tracking-[0.1em] md:tracking-[0.15em] uppercase hover:bg-[#a83008] transition-colors group">
                         <MapPin className="shrink-0 z-10 relative w-4 h-4" /> 
                         <span className="truncate z-10 relative">Google Maps</span>
                       </a>
-                      <a href="https://m.uber.com/ul/?action=setPickup&dropoff[latitude]=-14.4606969&dropoff[longitude]=-56.8441392&dropoff[formatted_address]=Panificadora%20Paes%20E%20Delicias" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden flex items-center justify-center gap-2 bg-[#3E2723] text-white rounded-full py-4 text-[10px] md:text-xs font-bold tracking-[0.1em] md:tracking-[0.15em] uppercase hover:bg-black transition-colors group">
+                      <a href="https://m.uber.com/ul/?action=setPickup&dropoff[latitude]=-14.4606969&dropoff[longitude]=-56.8441392&dropoff[formatted_address]=Panificadora%20Paes%20E%20Delicias" target="_blank" rel="noopener noreferrer" aria-label="Chamar um Uber até a padaria" className="relative overflow-hidden flex items-center justify-center gap-2 bg-[#3E2723] text-white rounded-full py-4 text-xs font-bold tracking-[0.1em] md:tracking-[0.15em] uppercase hover:bg-black transition-colors group">
                         <Car className="shrink-0 z-10 relative w-4 h-4" /> 
                         <span className="truncate z-10 relative">Pedir Uber</span>
                       </a>
@@ -585,17 +587,22 @@ export default function Home() {
                 >
                   <button 
                     onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                    aria-expanded={openFaq === index}
+                    aria-controls={`faq-answer-${index}`}
                     className="w-full px-6 py-6 text-left flex items-center justify-between gap-4 hover:bg-[#3E2723] transition-colors"
                   >
                     <span className="text-white font-bold text-lg md:text-xl pr-8">{faq.q}</span>
-                    <div className={`shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center transition-transform duration-300 ${openFaq === index ? 'rotate-180 bg-[#E64A19] border-[#E64A19]' : ''}`}>
-                      <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div className={`shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center transition-transform duration-300 ${openFaq === index ? 'rotate-180 bg-[#C63A0F] border-[#C63A0F]' : ''}`}>
+                      <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M1 1L7 7L13 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
                   </button>
                   
                   <div 
+                    id={`faq-answer-${index}`}
+                    role="region"
+                    aria-label={faq.q}
                     className={`px-6 overflow-hidden transition-all duration-500 ease-in-out ${openFaq === index ? 'max-h-64 py-6 opacity-100 border-t border-white/10' : 'max-h-0 py-0 opacity-0'}`}
                   >
                     <p className="text-[#FFF8E1]/80 text-base md:text-lg leading-relaxed font-light">
@@ -619,7 +626,8 @@ export default function Home() {
             <p className="text-[#FBC02D] font-bold mb-8">Nossa produção é estritamente limitada para os finais de semana.</p>
             <button 
               onClick={() => setShowCatalog(true)}
-              className="inline-flex bg-[#25D366] text-white font-black py-4 px-10 rounded-xl items-center gap-3 shadow-[0_10px_30px_rgba(37,211,102,0.2)] hover:bg-[#20bd5a] hover:-translate-y-1 transition-all text-xl mb-16"
+              aria-label="Abrir catálogo de produtos agora"
+              className="inline-flex bg-[#1a9e4a] text-white font-black py-5 px-10 rounded-xl items-center gap-3 shadow-[0_10px_30px_rgba(26,158,74,0.3)] hover:bg-[#157a3a] hover:-translate-y-1 transition-all text-xl mb-16"
             >
               <ShoppingBag className="w-6 h-6" />
               ABRIR CATÁLOGO AGORA
@@ -631,11 +639,11 @@ export default function Home() {
               <div className="flex flex-col items-center md:items-start gap-4">
                 <span className="text-[#FFF8E1]/80 text-sm font-bold tracking-widest uppercase">Acompanhe Nossas Fornadas</span>
                 <div className="flex gap-4">
-                  <a href="https://www.instagram.com/panipaesedelicias/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                  <a href="https://www.instagram.com/panipaesedelicias/" target="_blank" rel="noopener noreferrer" aria-label="Seguir Pães e Delícias no Instagram" className="w-14 h-14 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                   </a>
-                  <a href="https://www.facebook.com/panipaesedelicias/?locale=pt_BR" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-[#1877F2] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                  <a href="https://www.facebook.com/panipaesedelicias/?locale=pt_BR" target="_blank" rel="noopener noreferrer" aria-label="Seguir Pães e Delícias no Facebook" className="w-14 h-14 rounded-full bg-[#1877F2] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                   </a>
                 </div>
               </div>
@@ -652,7 +660,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="text-[#FFF8E1]/50 text-xs md:text-sm">
+            <div className="text-[#FFF8E1]/80 text-xs md:text-sm">
               <div className="mb-4 text-[#FBC02D] font-bold tracking-widest uppercase">
                 Atendemos diariamente das 5h30 às 18h00
               </div>
@@ -701,6 +709,7 @@ export default function Home() {
                 e.stopPropagation();
                 setZoomImageSrc(null);
               }}
+              aria-label="Fechar visualização de imagem"
               className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors shadow-lg"
             >
               <X className="w-6 h-6 text-white" />
