@@ -284,9 +284,15 @@ export default function Home() {
                 <ShoppingBag className="w-6 h-6" />
                 ACESSAR CATÁLOGO DIGITAL
               </button>
-              {/* Google Review Badge (Ultra Minimalist & Discreet) */}
-              <a href="https://maps.app.goo.gl/Yzwi6vzKYLC4kZrs9" target="_blank" rel="noopener noreferrer" draggable={false} style={{ WebkitTouchCallout: 'none' }} className="mt-5 md:mt-6 flex items-center gap-3 opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer group select-none">
-                <div className="w-7 h-7 rounded-full bg-white/5 backdrop-blur-sm flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:scale-110 transition-all duration-500 shadow-sm pointer-events-none">
+              {/* Google Review Badge (Ultra Minimalist & Discreet - Native App Feel) */}
+              <button 
+                type="button"
+                onClick={() => window.open('https://maps.app.goo.gl/Yzwi6vzKYLC4kZrs9', '_blank', 'noopener,noreferrer')}
+                onContextMenu={(e) => e.preventDefault()}
+                style={{ WebkitTouchCallout: 'none' }} 
+                className="mt-5 md:mt-6 flex items-center gap-3 opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer group select-none outline-none"
+              >
+                <div className="w-7 h-7 rounded-full bg-white/5 backdrop-blur-sm flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] transition-all duration-500 shadow-sm pointer-events-none">
                   <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 md:w-4 md:h-4 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                     <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -295,16 +301,18 @@ export default function Home() {
                   </svg>
                 </div>
                 <div className="flex items-center gap-2 md:gap-2.5">
-                  <div className="flex gap-0.5">
+                  <div className="flex gap-0.5 group-hover:scale-105 transition-transform duration-500">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 fill-[#FBC02D] text-[#FBC02D] drop-shadow-[0_0_6px_rgba(251,192,45,0.8)] pointer-events-none" />
+                      <div key={i} className="animate-in zoom-in fade-in duration-500 fill-mode-both" style={{ animationDelay: `${200 + (i * 100)}ms` }}>
+                        <Star className="w-3.5 h-3.5 md:w-4 md:h-4 fill-[#FBC02D] text-[#FBC02D] drop-shadow-[0_0_3px_rgba(251,192,45,0.5)] group-hover:drop-shadow-[0_0_8px_rgba(251,192,45,1)] transition-all duration-300 pointer-events-none" />
+                      </div>
                     ))}
                   </div>
                   <span className="text-white/90 font-medium text-[11px] md:text-sm drop-shadow-md tracking-wide border-l border-white/20 pl-2 md:pl-2.5 pointer-events-none">
                     <span className="font-bold text-white">5.0</span> no bairro Vila Nova
                   </span>
                 </div>
-              </a>
+              </button>
             </div>
           </div>
         </section>
