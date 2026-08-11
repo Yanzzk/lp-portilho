@@ -240,7 +240,17 @@ export default function Home() {
 
         {/* Hero Section */}
         <section className="relative w-full min-h-[85vh] flex flex-col justify-center items-center overflow-hidden bg-[#2D1B18] pt-12 md:pt-16">
-          {/* Video Background */}
+          
+          {/* Status Pill (Absolute Top Center) */}
+          <div className="absolute top-4 md:top-6 left-1/2 -translate-x-1/2 z-30 inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full shadow-lg animate-in fade-in duration-1000 slide-in-from-top-4 whitespace-nowrap">
+            <span className="relative flex h-3 w-3 items-center justify-center shrink-0">
+              <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentFornada.color}`}></span>
+              {currentFornada.icon}
+            </span>
+            <span className="text-[9px] md:text-xs font-bold text-white tracking-[0.15em] uppercase ml-1 truncate">
+              {currentFornada.text}
+            </span>
+          </div>
 
           <video 
             ref={videoRef}
@@ -257,17 +267,6 @@ export default function Home() {
 
           {/* Hero Content */}
           <div className="relative z-20 w-full px-4 md:px-6 max-w-5xl mx-auto flex flex-col items-center text-center pt-24 pb-12 md:pt-16 md:pb-0 mt-8 md:mt-0">
-            
-            {/* Status Pill (Original Design Premium) */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full mb-6 shadow-lg animate-in fade-in duration-1000 slide-in-from-bottom-4">
-              <span className="relative flex h-3 w-3 items-center justify-center">
-                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentFornada.color}`}></span>
-                {currentFornada.icon}
-              </span>
-              <span className="text-[10px] md:text-xs font-bold text-white tracking-[0.15em] uppercase ml-1">
-                {currentFornada.text}
-              </span>
-            </div>
 
             <h1 className="font-serif text-4xl md:text-6xl lg:text-[5rem] leading-[1.1] font-black text-white drop-shadow-xl max-w-4xl mx-auto">
               A tradição que Arenápolis ama, <br className="hidden md:block"/><span className="text-[#FBC02D] italic font-light">agora a um clique da sua mesa.</span>
