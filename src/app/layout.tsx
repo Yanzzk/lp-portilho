@@ -14,8 +14,8 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://paesedeliciasmt.com.br"),
-  title: "Panificadora Pães & Delícias | A Melhor Padaria de Arenápolis - MT",
-  description: "A tradição de 16 anos que Arenápolis ama. Encomende bolos premium, salgados fritos na hora e pães frescos direto pelo WhatsApp. Fure a fila e seja VIP!",
+  title: "Pães & Delícias | O Sabor que Arenápolis Escolheu",
+  description: "Chega das filas. Peça pães frescos, salgados quentes e bolos premium direto no seu WhatsApp. A melhor padaria de Arenápolis agora a um clique de distância.",
   keywords: ["Padaria em Arenápolis", "Panificadora Arenápolis MT", "bolos para festa", "salgados fritos na hora", "Pães e Delícias", "onde tomar café em Arenápolis", "encomendas de bolos Arenápolis", "padaria perto de mim"],
   authors: [{ name: "Pães & Delícias" }],
   creator: "Pães & Delícias",
@@ -26,16 +26,16 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Panificadora Pães & Delícias | O Sabor que Arenápolis Ama",
-    description: "Salgados crocantes, bolos premium e pães frescos feitos na hora. Fure a fila e acesse nosso Cardápio VIP pelo celular.",
+    title: "Pães & Delícias | O Sabor que Arenápolis Escolheu",
+    description: "Chega das filas. Peça pães frescos, salgados quentes e bolos premium direto no seu WhatsApp. A melhor padaria de Arenápolis agora a um clique de distância.",
     url: "https://paesedeliciasmt.com.br",
     siteName: "Panificadora Pães & Delícias",
     images: [
       {
-        url: "/images/fachada.webp",
+        url: "/images/mockup-produto-008.webp",
         width: 1200,
         height: 630,
-        alt: "Fachada Panificadora Pães & Delícias em Arenápolis",
+        alt: "Mockup Panificadora Pães & Delícias em Arenápolis",
       },
     ],
     locale: "pt_BR",
