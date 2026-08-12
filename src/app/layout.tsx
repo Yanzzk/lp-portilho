@@ -15,7 +15,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL("https://paesedeliciasmt.com.br"),
   title: "Pães & Delícias | O Sabor que Arenápolis Escolheu",
-  description: "Chega de filas. Peça pães frescos, salgados quentes e bolos premium direto no seu WhatsApp. A melhor padaria de Arenápolis agora a um clique de distância.",
+  description: "Chega de filas. Peça pães, salgados e bolos premium pelo WhatsApp na melhor padaria de Arenápolis!",
   keywords: ["Padaria em Arenápolis", "Panificadora Arenápolis MT", "bolos para festa", "salgados fritos na hora", "Pães e Delícias", "onde tomar café em Arenápolis", "encomendas de bolos Arenápolis", "padaria perto de mim"],
   authors: [{ name: "Pães & Delícias" }],
   creator: "Pães & Delícias",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Pães & Delícias | O Sabor que Arenápolis Escolheu",
-    description: "Chega de filas. Peça pães frescos, salgados quentes e bolos premium direto no seu WhatsApp. A melhor padaria de Arenápolis agora a um clique de distância.",
+    description: "Chega de filas. Peça pães, salgados e bolos premium pelo WhatsApp na melhor padaria de Arenápolis!",
     url: "https://paesedeliciasmt.com.br",
     siteName: "Panificadora Pães & Delícias",
     images: [
